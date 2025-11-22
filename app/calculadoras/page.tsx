@@ -99,7 +99,7 @@ export default function CalculadorasPage() {
                                             >
                                                 <span className="flex items-center gap-2">
                                                     {item.name}
-                                                    {item.badge && (
+                                                    {'badge' in item && item.badge && (
                                                         <span className="text-xs">{item.badge}</span>
                                                     )}
                                                 </span>
