@@ -1,0 +1,9 @@
+$envContent = @"
+DATABASE_URL=prisma+postgres://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfaWQiOjEsInNlY3VyZV9rZXkiOiJza19nYWs5QV9mMXBWMmVlTExLczl1YkMiLCJhcGlfa2V5IjoiMDFLQVAwVkdYVlFKWksxUUQzOURQNlJORTUiLCJ0ZW5hbnRfaWQiOiIyYTcyOTdiNjUwYTY0YTU2YWM0OWUxN2U2YmYzNzU2YTZmMGRmYmUwMjc1NWJkOWFhNDkxZmM5ZWU0NzQyM2FkIiwiaW50ZXJuYWxfc2VjcmV0IjoiNTQ3ZmRmMGQtNWRmNi00MTFlLWJjM2MtZGU1NjRiYjQ3NTM4In0._RTB6WTsZyrX-lGqF0LCHwdW9EtpXvskUXQ1Sny-0Ik
+DIRECT_URL=postgres://2a7297b650a64a56ac49e17e6bf3756a6f0dfbe02755bd9aa491fc9ee47423ad:sk_gak9A_f1pV2eeLLKs9ubC@db.prisma.io:5432/postgres?sslmode=require
+NEXTAUTH_SECRET=dev-secret-change-in-production
+NEXTAUTH_URL=http://localhost:3000
+"@
+
+[System.IO.File]::WriteAllText("$PSScriptRoot\.env", $envContent)
+Write-Host ".env file created successfully"
