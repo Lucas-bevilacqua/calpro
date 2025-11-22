@@ -1,0 +1,91 @@
+import { notFound } from "next/navigation"
+import { getPostBySlug, getAllPosts } from "@/lib/blog"
+import { format } from "date-fns"
+import { ptBR } from "date-fns/locale"
+import { MDXRemote } from "next-mdx-remote/rsc"
+import Link from "next/link"
+import { ChevronLeft, CalendarIcon, User } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+interface BlogPostPageProps {
+    params: Promise<{
+        slug: string
+    }>
+}
+
+export async function generateStaticParams() {
+    const posts = getAllPosts()
+    return posts.map((post) => ({
+        slug: post.slug,
+    }))
+}
+
+export async function generateMetadata({ params }: BlogPostPageProps) {
+    const { slug } = await params
+    const post = getPostBySlug(slug)
+
+    if (!post) {
+        return {
+            title: "Post não encontrado",
+        }
+    }
+
+    return {
+        title: `${post.title} | Blog CalcPro.br`,
+        description: post.description,
+    }
+}
+
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+    const { slug } = await params
+    const post = getPostBySlug(slug)
+
+    if (!post) {
+        notFound()
+    }
+
+    return (
+        <article className="container py-10 max-w-3xl mx-auto">
+            <div className="mb-8">
+                <Link href="/blog">
+                    <Button variant="ghost" className="pl-0 hover:pl-0 hover:bg-transparent text-muted-foreground hover:text-foreground transition-colors">
+                        <ChevronLeft className="mr-2 h-4 w-4" />
+                        Voltar para o Blog
+                    </Button>
+                </Link>
+            </div>
+
+            <div className="space-y-4 mb-8 text-center">
+                <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                        <CalendarIcon className="h-4 w-4" />
+                        <time dateTime={post.date}>
+                            {format(new Date(post.date), "d 'de' MMMM, yyyy", { locale: ptBR })}
+                        </time>
+                    </div>
+                    <span>•</span>
+                    <div className="flex items-center gap-1">
+                        <User className="h-4 w-4" />
+                        {post.author}
+                    </div>
+                </div>
+                <h1 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+                    {post.title}
+                </h1>
+                {post.image && (
+                    <div className="mt-8 aspect-video w-full overflow-hidden rounded-lg border bg-muted">
+                        <img
+                            src={post.image}
+                            alt={post.title}
+                            className="h-full w-full object-cover"
+                        />
+                    </div>
+                )}
+            </div>
+
+            <div className="prose prose-stone dark:prose-invert mx-auto max-w-none">
+                <MDXRemote source={post.content} />
+            </div>
+        </article>
+    )
+}
