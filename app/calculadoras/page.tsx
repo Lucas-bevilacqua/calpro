@@ -13,7 +13,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 export const metadata: Metadata = {
     title: "Todas as Calculadoras | CalcPro.br",
-    description: "Acesse todas as nossas calculadoras profissionais. Trabalhista, Financeira, Construção e mais.",
+    description: "Acesse 11 calculadoras profissionais: Trabalhista, Freelancer, Financeira, Construção. Grátis e atualizadas para 2025.",
 }
 
 const categories = [
@@ -22,9 +22,20 @@ const categories = [
         icon: Briefcase,
         description: "Cálculos de rescisão, férias, décimo terceiro e horas extras.",
         items: [
-            { name: "Rescisão Trabalhista", href: "/calculadora/trabalhista/rescisao-trabalhista" },
-            { name: "Horas Extras", href: "/calculadora/trabalhista/horas-extras" },
-            { name: "13º Salário", href: "/calculadora/trabalhista/13-salario" },
+            { name: "Rescisão Trabalhista", href: "/calculadora/trabalhista/rescisao-trabalhista", badge: "⭐" },
+            { name: "Horas Extras", href: "/calculadora/trabalhista/horas-extras", badge: "⭐" },
+            { name: "13º Salário", href: "/calculadora/trabalhista/13-salario", badge: "⭐" },
+            { name: "Férias Proporcionais", href: "/calculadora/trabalhista/ferias-proporcionais", badge: "🆕" },
+            { name: "Seguro-Desemprego", href: "/calculadora/trabalhista/seguro-desemprego", badge: "🆕" },
+        ]
+    },
+    {
+        title: "Freelancer",
+        icon: User,
+        description: "Precificação de projetos e cálculo de hora técnica.",
+        items: [
+            { name: "Valor Hora Freelancer", href: "/calculadora/freelancer/valor-hora", badge: "🆕" },
+            { name: "Impostos MEI", href: "/calculadora/freelancer/impostos-mei", badge: "🆕" },
         ]
     },
     {
@@ -37,18 +48,13 @@ const categories = [
             { name: "Financiamento (SAC/Price)", href: "/calculadora/financeira/financiamento" },
         ]
     },
-    // Placeholders for future categories
     {
         title: "Construção",
         icon: HardHat,
         description: "Cálculos de materiais e custos de obra.",
-        items: []
-    },
-    {
-        title: "Freelancer",
-        icon: User,
-        description: "Precificação de projetos e cálculo de hora técnica.",
-        items: []
+        items: [
+            { name: "Materiais de Construção", href: "/calculadora/construcao/materiais-obra", badge: "🆕" },
+        ]
     },
     {
         title: "Contábil",
@@ -91,7 +97,12 @@ export default function CalculadorasPage() {
                                                 href={item.href}
                                                 className="group flex items-center justify-between text-sm font-medium hover:text-primary transition-colors"
                                             >
-                                                {item.name}
+                                                <span className="flex items-center gap-2">
+                                                    {item.name}
+                                                    {item.badge && (
+                                                        <span className="text-xs">{item.badge}</span>
+                                                    )}
+                                                </span>
                                                 <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                                             </Link>
                                         </li>

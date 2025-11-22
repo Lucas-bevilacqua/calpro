@@ -20,10 +20,10 @@ export function UserMenu() {
     if (!session?.user) {
         return (
             <div className="hidden md:flex items-center gap-2">
-                <Link href="/auth/login">
+                <Link href="/login">
                     <Button variant="ghost" size="sm">Entrar</Button>
                 </Link>
-                <Link href="/auth/register">
+                <Link href="/register">
                     <Button size="sm">Criar Conta</Button>
                 </Link>
             </div>

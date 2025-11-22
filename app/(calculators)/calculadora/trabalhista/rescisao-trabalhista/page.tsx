@@ -7,9 +7,16 @@ export const metadata: Metadata = {
     keywords: ["calculadora rescisão", "calcular rescisão", "acerto trabalhista", "rescisão clt 2025"],
 }
 
+import { AdBanner, AdInArticle } from "@/components/ads/google-adsense"
+
 export default function RescisaoPage() {
     return (
         <div className="container py-10 space-y-10">
+            {/* Ad Banner - Top */}
+            <div className="max-w-3xl mx-auto">
+                <AdBanner className="mb-6" />
+            </div>
+
             <div className="text-center space-y-4 max-w-3xl mx-auto">
                 <h1 className="text-4xl font-bold tracking-tight text-primary">Calculadora de Rescisão Trabalhista</h1>
                 <p className="text-xl text-muted-foreground">
@@ -18,6 +25,11 @@ export default function RescisaoPage() {
             </div>
 
             <RescisaoForm />
+
+            {/* Ad In-Article - Middle */}
+            <div className="max-w-3xl mx-auto">
+                <AdInArticle className="my-8" />
+            </div>
 
             <div className="max-w-3xl mx-auto prose dark:prose-invert">
                 <h2>Como funciona o cálculo de rescisão?</h2>

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useSession } from "next-auth/react"
 import { Button } from "@/components/ui/button"
 import {
@@ -17,6 +17,8 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Save, Loader2 } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { useSubscription } from "@/hooks/use-subscription"
+import { UpgradeDialog } from "@/components/subscription/upgrade-dialog"
 
 interface SaveCalculationDialogProps {
     calculatorType: string
@@ -33,10 +35,27 @@ export function SaveCalculationDialog({
 }: SaveCalculationDialogProps) {
     const { data: session } = useSession()
     const router = useRouter()
+    const { subscription, canSave } = useSubscription()
     const [open, setOpen] = useState(false)
+    const [showUpgrade, setShowUpgrade] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [name, setName] = useState("")
     const [notes, setNotes] = useState("")
+    const [savedCount, setSavedCount] = useState(0)
+
+    useEffect(() => {
+        async function fetchSavedCount() {
+            if (!session) return
+            try {
+                const response = await fetch('/api/calculations/count')
+                const data = await response.json()
+                setSavedCount(data.count || 0)
+            } catch (error) {
+                console.error('Erro ao buscar contagem:', error)
+            }
+        }
+        fetchSavedCount()
+    }, [session])
 
     if (!session) {
         return (
@@ -48,6 +67,13 @@ export function SaveCalculationDialog({
     }
 
     async function handleSave() {
+        // Verificar limite antes de salvar
+        if (!canSave(savedCount)) {
+            setOpen(false)
+            setShowUpgrade(true)
+            return
+        }
+
         setIsLoading(true)
         try {
             const response = await fetch("/api/calculations", {
@@ -75,7 +101,13 @@ export function SaveCalculationDialog({
     }
 
     return (
-        <Dialog open={open} onOpenChange={setOpen}>
+        <>
+            <UpgradeDialog
+                open={showUpgrade}
+                onOpenChange={setShowUpgrade}
+                feature="salvar mais cálculos"
+            />
+            <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
                 <Button variant="outline" disabled={disabled}>
                     <Save className="mr-2 h-4 w-4" />
@@ -117,5 +149,6 @@ export function SaveCalculationDialog({
                 </DialogFooter>
             </DialogContent>
         </Dialog>
+        </>
     )
 }
