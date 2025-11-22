@@ -44,6 +44,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
+import { SaveCalculationDialog } from "@/components/calculators/save-calculation-dialog"
 
 const formSchema = z.object({
     valorFinanciado: z.coerce.number().min(1, "Valor deve ser maior que zero"),
@@ -163,9 +164,11 @@ export function FinanciamentoForm() {
                                 <Button variant="outline" className="w-full" disabled>
                                     <Download className="mr-2 h-4 w-4" /> Baixar PDF (PRO)
                                 </Button>
-                                <Button variant="outline" className="w-full" disabled>
-                                    <Save className="mr-2 h-4 w-4" /> Salvar (PRO)
-                                </Button>
+                                <SaveCalculationDialog
+                                    calculatorType="financiamento"
+                                    inputs={form.getValues()}
+                                    results={result}
+                                />
                             </div>
                         </div>
                     </CardContent>

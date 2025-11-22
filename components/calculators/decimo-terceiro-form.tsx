@@ -29,6 +29,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { calcularDecimoTerceiro, DecimoTerceiroOutput } from "@/lib/calculators/decimo-terceiro"
 import { Slider } from "@/components/ui/slider"
+import { SaveCalculationDialog } from "@/components/calculators/save-calculation-dialog"
 
 const formSchema = z.object({
     salarioBruto: z.coerce.number().min(1, "Salário deve ser maior que zero"),
@@ -127,9 +128,11 @@ export function DecimoTerceiroForm() {
                                 <Button variant="outline" className="w-full" disabled>
                                     <Download className="mr-2 h-4 w-4" /> Baixar PDF (PRO)
                                 </Button>
-                                <Button variant="outline" className="w-full" disabled>
-                                    <Save className="mr-2 h-4 w-4" /> Salvar (PRO)
-                                </Button>
+                                <SaveCalculationDialog 
+                                    calculatorType="decimo-terceiro"
+                                    inputs={form.getValues()}
+                                    results={result}
+                                />
                             </div>
                         </div>
                     </CardContent>

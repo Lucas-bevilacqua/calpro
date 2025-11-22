@@ -37,6 +37,7 @@ import {
 import { CalculatorCard } from "@/components/ui/calculator-card"
 import { Card, CardContent } from "@/components/ui/card"
 import { calcularJurosCompostos, JurosCompostosOutput } from "@/lib/calculators/juros-compostos"
+import { SaveCalculationDialog } from "@/components/calculators/save-calculation-dialog"
 
 const formSchema = z.object({
     valorInicial: z.coerce.number().min(0),
@@ -145,9 +146,11 @@ export function JurosCompostosForm() {
                                 <Button variant="outline" className="w-full" disabled>
                                     <Download className="mr-2 h-4 w-4" /> Baixar Relatório (PRO)
                                 </Button>
-                                <Button variant="outline" className="w-full" disabled>
-                                    <Save className="mr-2 h-4 w-4" /> Salvar Simulação (PRO)
-                                </Button>
+                                <SaveCalculationDialog
+                                    calculatorType="juros-compostos"
+                                    inputs={form.getValues()}
+                                    results={result}
+                                />
                             </div>
                         </div>
                     </CardContent>

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Calculator, Menu, X } from 'lucide-react'
+import { UserMenu } from './user-menu'
 
 export function Header() {
   return (
@@ -10,7 +11,7 @@ export function Header() {
           <Calculator className="h-6 w-6 text-primary" />
           <span className="text-xl font-bold tracking-tight">CalcPro.br</span>
         </Link>
-        
+
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
           <Link href="/calculadoras" className="transition-colors hover:text-foreground/80 text-foreground/60">
@@ -25,10 +26,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <div className="hidden md:flex">
-             <Button variant="ghost" size="sm">Entrar</Button>
-             <Button size="sm">Criar Conta</Button>
-          </div>
+          <UserMenu />
           <Button variant="ghost" size="icon" className="md:hidden">
             <Menu className="h-5 w-5" />
             <span className="sr-only">Toggle menu</span>
