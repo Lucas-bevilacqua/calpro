@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
             throw new Error('User ID não encontrado nos metadados');
           }
 
-          const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+          const subscription = await stripe.subscriptions.retrieve(subscriptionId) as Stripe.Subscription;
 
           await prisma.subscription.upsert({
             where: { userId },
@@ -56,16 +56,16 @@ export async function POST(req: NextRequest) {
               stripePriceId: subscription.items.data[0].price.id,
               plan: 'PRO',
               status: 'ACTIVE',
-              currentPeriodStart: new Date(subscription.current_period_start * 1000),
-              currentPeriodEnd: new Date(subscription.current_period_end * 1000),
+              currentPeriodStart: new Date((subscription.current_period_start as number) * 1000),
+              currentPeriodEnd: new Date((subscription.current_period_end as number) * 1000),
             },
             update: {
               stripeSubscriptionId: subscriptionId,
               stripePriceId: subscription.items.data[0].price.id,
               plan: 'PRO',
               status: 'ACTIVE',
-              currentPeriodStart: new Date(subscription.current_period_start * 1000),
-              currentPeriodEnd: new Date(subscription.current_period_end * 1000),
+              currentPeriodStart: new Date((subscription.current_period_start as number) * 1000),
+              currentPeriodEnd: new Date((subscription.current_period_end as number) * 1000),
             },
           });
         }
@@ -79,8 +79,8 @@ export async function POST(req: NextRequest) {
           where: { stripeSubscriptionId: subscription.id },
           data: {
             status: subscription.status.toUpperCase() as any,
-            currentPeriodStart: new Date(subscription.current_period_start * 1000),
-            currentPeriodEnd: new Date(subscription.current_period_end * 1000),
+            currentPeriodStart: new Date((subscription.current_period_start as number) * 1000),
+            currentPeriodEnd: new Date((subscription.current_period_end as number) * 1000),
             cancelAtPeriodEnd: subscription.cancel_at_period_end,
           },
         });
