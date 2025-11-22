@@ -35,7 +35,7 @@ export default function MateriaisConstrucaoPage() {
         "Calcule a quantidade de materiais para sua obra",
         "https://calcpro.br/calculadora/construcao/materiais-obra"
       )} />
-      <SchemaMarkup schema={generateFAQSchema(faqs)} />
+      <SchemaMarkup data={generateFAQSchema(faqs)} />
 
       <div className="container py-10 space-y-10">
         <div className="text-center space-y-4 max-w-3xl mx-auto">
