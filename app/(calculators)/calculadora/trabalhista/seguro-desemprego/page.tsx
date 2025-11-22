@@ -30,12 +30,12 @@ const faqs = [
 export default function SeguroDesempregoPage() {
   return (
     <>
-      <SchemaMarkup schema={generateWebApplicationSchema({
-        name: "Calculadora de Seguro-Desemprego",
-        description: "Calcule o valor e número de parcelas do seguro-desemprego",
-        url: "https://calcpro.br/calculadora/trabalhista/seguro-desemprego"
-      })} />
-      <SchemaMarkup schema={generateFAQSchema(faqs)} />
+      <SchemaMarkup data={generateWebApplicationSchema(
+        "Calculadora de Seguro-Desemprego",
+        "Calcule o valor e número de parcelas do seguro-desemprego",
+        "https://calcpro.br/calculadora/trabalhista/seguro-desemprego"
+      )} />
+      <SchemaMarkup data={generateFAQSchema(faqs)} />
 
       <div className="container py-10 space-y-10">
         <div className="text-center space-y-4 max-w-3xl mx-auto">

@@ -30,12 +30,12 @@ const faqs = [
 export default function ValorHoraPage() {
   return (
     <>
-      <SchemaMarkup schema={generateWebApplicationSchema({
-        name: "Calculadora de Valor/Hora Freelancer",
-        description: "Calcule quanto cobrar por hora como freelancer",
-        url: "https://calcpro.br/calculadora/freelancer/valor-hora"
-      })} />
-      <SchemaMarkup schema={generateFAQSchema(faqs)} />
+      <SchemaMarkup data={generateWebApplicationSchema(
+        "Calculadora de Valor/Hora Freelancer",
+        "Calcule quanto cobrar por hora como freelancer",
+        "https://calcpro.br/calculadora/freelancer/valor-hora"
+      )} />
+      <SchemaMarkup data={generateFAQSchema(faqs)} />
 
       <div className="container py-10 space-y-10">
         <div className="text-center space-y-4 max-w-3xl mx-auto">

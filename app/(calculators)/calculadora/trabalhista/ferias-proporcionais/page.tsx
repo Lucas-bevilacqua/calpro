@@ -30,12 +30,12 @@ const faqs = [
 export default function FeriasProporcionaisPage() {
   return (
     <>
-      <SchemaMarkup schema={generateWebApplicationSchema({
-        name: "Calculadora de Férias Proporcionais",
-        description: "Calcule o valor das férias proporcionais com 1/3 constitucional",
-        url: "https://calcpro.br/calculadora/trabalhista/ferias-proporcionais"
-      })} />
-      <SchemaMarkup schema={generateFAQSchema(faqs)} />
+      <SchemaMarkup data={generateWebApplicationSchema(
+        "Calculadora de Férias Proporcionais",
+        "Calcule o valor das férias proporcionais com 1/3 constitucional",
+        "https://calcpro.br/calculadora/trabalhista/ferias-proporcionais"
+      )} />
+      <SchemaMarkup data={generateFAQSchema(faqs)} />
 
       <div className="container py-10 space-y-10">
         <div className="text-center space-y-4 max-w-3xl mx-auto">

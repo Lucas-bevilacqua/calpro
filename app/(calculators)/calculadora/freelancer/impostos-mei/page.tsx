@@ -30,12 +30,12 @@ const faqs = [
 export default function ImpostosMEIPage() {
   return (
     <>
-      <SchemaMarkup schema={generateWebApplicationSchema({
-        name: "Calculadora de Impostos MEI",
-        description: "Calcule o valor do DAS mensal do MEI",
-        url: "https://calcpro.br/calculadora/freelancer/impostos-mei"
-      })} />
-      <SchemaMarkup schema={generateFAQSchema(faqs)} />
+      <SchemaMarkup data={generateWebApplicationSchema(
+        "Calculadora de Impostos MEI",
+        "Calcule o valor do DAS mensal do MEI",
+        "https://calcpro.br/calculadora/freelancer/impostos-mei"
+      )} />
+      <SchemaMarkup data={generateFAQSchema(faqs)} />
 
       <div className="container py-10 space-y-10">
         <div className="text-center space-y-4 max-w-3xl mx-auto">

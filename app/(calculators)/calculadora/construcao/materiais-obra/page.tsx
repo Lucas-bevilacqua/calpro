@@ -30,11 +30,11 @@ const faqs = [
 export default function MateriaisConstrucaoPage() {
   return (
     <>
-      <SchemaMarkup schema={generateWebApplicationSchema({
-        name: "Calculadora de Materiais de Construção",
-        description: "Calcule a quantidade de materiais para sua obra",
-        url: "https://calcpro.br/calculadora/construcao/materiais-obra"
-      })} />
+      <SchemaMarkup data={generateWebApplicationSchema(
+        "Calculadora de Materiais de Construção",
+        "Calcule a quantidade de materiais para sua obra",
+        "https://calcpro.br/calculadora/construcao/materiais-obra"
+      )} />
       <SchemaMarkup schema={generateFAQSchema(faqs)} />
 
       <div className="container py-10 space-y-10">
