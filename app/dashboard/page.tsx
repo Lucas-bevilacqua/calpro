@@ -97,7 +97,7 @@ export default async function DashboardPage() {
                         {subscription.isPro ? (
                             <div className="space-y-2">
                                 <p className="text-xs text-muted-foreground">
-                                    Renovação: {subscription.currentPeriodEnd ? new Date(subscription.currentPeriodEnd).toLocaleDateString('pt-BR') : 'N/A'}
+                                    Renovação: {'currentPeriodEnd' in subscription && subscription.currentPeriodEnd ? new Date(subscription.currentPeriodEnd).toLocaleDateString('pt-BR') : 'N/A'}
                                 </p>
                                 <form action="/api/stripe/portal" method="POST">
                                     <Button variant="outline" size="sm" className="w-full">
