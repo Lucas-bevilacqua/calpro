@@ -86,6 +86,26 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="prose prose-stone dark:prose-invert mx-auto max-w-none">
                 <MDXRemote source={post.content} />
             </div>
+
+            {/* Author Bio Section */}
+            <div className="mt-12 pt-8 border-t">
+                <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                        <img
+                            src={post.author === "Equipe CalcPro" ? "/authors/equipe-calcpro.png" : "/authors/default.png"}
+                            alt={post.author}
+                            className="w-16 h-16 rounded-full object-cover"
+                        />
+                    </div>
+                    <div className="flex-1">
+                        <h3 className="font-semibold text-lg mb-1">Sobre o Autor</h3>
+                        <p className="font-medium text-primary mb-2">{post.author}</p>
+                        <p className="text-sm text-muted-foreground">
+                            Especialistas em finanças pessoais e direito trabalhista brasileiro, dedicados a fornecer informações precisas e ferramentas úteis para ajudar você a tomar decisões financeiras informadas.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </article>
     )
 }
