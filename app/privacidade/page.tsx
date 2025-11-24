@@ -1,8 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export const metadata = {
-    title: "Política de Privacidade | CalcPro.br",
-    description: "Política de Privacidade do CalcPro.br",
+    title: "Política de Privacidade | calcprobr.com",
+    description: "Política de Privacidade do calcprobr.com",
 }
 
 export default function PrivacyPage() {
@@ -17,7 +17,7 @@ export default function PrivacyPage() {
 
                     <h3>1. Introdução</h3>
                     <p>
-                        O CalcPro.br ("nós", "nosso") respeita a sua privacidade e está comprometido em proteger os seus dados pessoais.
+                        O calcprobr.com ("nós", "nosso") respeita a sua privacidade e está comprometido em proteger os seus dados pessoais.
                         Esta política de privacidade irá informá-lo sobre como cuidamos dos seus dados pessoais quando você visita nosso site
                         e lhe falar sobre seus direitos de privacidade e como a lei o protege.
                     </p>

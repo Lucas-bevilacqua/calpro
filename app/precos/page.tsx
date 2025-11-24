@@ -7,7 +7,7 @@ import { authOptions } from "@/lib/auth";
 import { PricingCard } from "@/components/subscription/pricing-card";
 
 export const metadata: Metadata = {
-  title: "Preços | CalcPro.br",
+  title: "Preços | calcprobr.com",
   description: "Escolha o plano ideal para você. Comece grátis ou desbloqueie recursos PRO.",
 };
 

@@ -1,4 +1,4 @@
-# Setup de Monetização - CalcPro.br
+# Setup de Monetização - calcprobr.com
 
 ## ✅ Implementado
 
@@ -267,7 +267,7 @@ DATABASE_URL=postgresql://...
 DIRECT_URL=postgresql://...
 
 # NextAuth
-NEXTAUTH_URL=https://calcpro.br
+NEXTAUTH_URL=https://calcprobr.com
 NEXTAUTH_SECRET=xxxxx
 ```
 
@@ -275,7 +275,7 @@ NEXTAUTH_SECRET=xxxxx
 
 ```bash
 # Stripe Dashboard → Webhooks
-URL: https://calcpro.br/api/stripe/webhook
+URL: https://calcprobr.com/api/stripe/webhook
 ```
 
 ### 3. Verificar AdSense

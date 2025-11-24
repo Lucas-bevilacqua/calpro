@@ -5,8 +5,8 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: '/private/',
+            disallow: ['/private/', '/admin/', '/api/', '/auth/', '/dashboard/'],
         },
-        sitemap: 'https://calcpro.br/sitemap.xml',
+        sitemap: 'https://www.calcprobr.com/sitemap.xml',
     }
 }

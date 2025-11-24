@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Mail, MapPin, Phone } from "lucide-react"
 
 export const metadata = {
-    title: "Contato | CalcPro.br",
-    description: "Entre em contato com a equipe do CalcPro.br",
+    title: "Contato | calcprobr.com",
+    description: "Entre em contato com a equipe do calcprobr.com",
 }
 
 export default function ContactPage() {
@@ -28,7 +28,7 @@ export default function ContactPage() {
                             </div>
                             <div>
                                 <h3 className="font-semibold">Email</h3>
-                                <p className="text-muted-foreground">contato@calcpro.br</p>
+                                <p className="text-muted-foreground">contato@calcprobr.com</p>
                             </div>
                         </div>
 

@@ -1,0 +1,320 @@
+
+> callpro@0.1.0 lint
+> eslint
+
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\(auth)\login\page.tsx
+  63:18  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\(calculators)\calculadora\trabalhista\ferias-proporcionais\page.tsx
+  57:72  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  57:77  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\admin\posts\[id]\page.tsx
+   79:22  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  115:18  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\admin\posts\new\page.tsx
+  73:18  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\admin\posts\page.tsx
+  39:8   warning  React Hook useEffect has a missing dependency: 'fetchPosts'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  47:18  warning  'error' is defined but never used                                                                              @typescript-eslint/no-unused-vars
+  73:18  warning  'error' is defined but never used                                                                              @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\admin\users\page.tsx
+  33:8   warning  React Hook useEffect has a missing dependency: 'fetchUsers'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  41:18  warning  'error' is defined but never used                                                                              @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\api\admin\posts\[id]\route.ts
+  37:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  70:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  92:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\api\admin\posts\route.ts
+  38:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\api\admin\users\route.ts
+  28:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\api\ai\generate-post\route.ts
+  105:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\api\calculations\[id]\route.ts
+  8:14  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\api\calculations\route.ts
+  43:27  warning  'req' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\api\cron\generate-posts\route.ts
+  48:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\api\register\route.ts
+  39:27  warning  '_' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\api\seo\run-agent\route.ts
+  22:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  44:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\api\stripe\portal\route.ts
+  7:28  warning  'req' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\api\stripe\webhook\route.ts
+  48:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  76:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  81:58  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\blog\[slug]\page.tsx
+  77:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\blog\page.tsx
+   3:16  warning  'CardContent' is defined but never used                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+  36:41  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\calculadoras\page.tsx
+  4:5  warning  'Calculator' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\contato\page.tsx
+  5:16  warning  'MapPin' is defined but never used  @typescript-eslint/no-unused-vars
+  5:24  warning  'Phone' is defined but never used   @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\og\route.tsx
+  90:14  warning  'e' is defined but never used             @typescript-eslint/no-unused-vars
+  90:17  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\precos\page.tsx
+  2:10  warning  'Check' is defined but never used            @typescript-eslint/no-unused-vars
+  2:17  warning  'Sparkles' is defined but never used         @typescript-eslint/no-unused-vars
+  3:10  warning  'Button' is defined but never used           @typescript-eslint/no-unused-vars
+  4:10  warning  'Card' is defined but never used             @typescript-eslint/no-unused-vars
+  4:16  warning  'CardContent' is defined but never used      @typescript-eslint/no-unused-vars
+  4:29  warning  'CardDescription' is defined but never used  @typescript-eslint/no-unused-vars
+  4:46  warning  'CardFooter' is defined but never used       @typescript-eslint/no-unused-vars
+  4:58  warning  'CardHeader' is defined but never used       @typescript-eslint/no-unused-vars
+  4:70  warning  'CardTitle' is defined but never used        @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\privacidade\page.tsx
+  20:42  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  20:46  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  20:49  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  20:55  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\lucas.bevilacqua\Documents\callpro\app\termos\page.tsx
+  27:75  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  27:85  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\admin\generate-post-dialog.tsx
+  76:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\admin\run-agent-dialog.tsx
+  15:38  warning  'XCircle' is defined but never used       @typescript-eslint/no-unused-vars
+  31:42  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  60:25  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\ads\adsense.tsx
+  16:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  16:51  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\ads\google-adsense.tsx
+  23:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  23:51  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\auth\login-form.tsx
+  35:46  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  59:18  warning  'error' is defined but never used         @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\auth\register-form.tsx
+  39:46  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  71:18  warning  'error' is defined but never used         @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\calculators\decimo-terceiro-form.tsx
+   7:32  warning  'Save' is defined but never used          @typescript-eslint/no-unused-vars
+  45:46  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  59:40  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\calculators\financiamento-form.tsx
+   7:32  warning  'Save' is defined but never used          @typescript-eslint/no-unused-vars
+  60:46  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\calculators\horas-extras-form.tsx
+   7:32  warning  'Save' is defined but never used          @typescript-eslint/no-unused-vars
+  29:10  warning  'Separator' is defined but never used     @typescript-eslint/no-unused-vars
+  47:46  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\calculators\impostos-mei-form.tsx
+  9:31  warning  'getDescricaoAtividade' is defined but never used  @typescript-eslint/no-unused-vars
+  9:54  warning  'getComposicaoDAS' is defined but never used       @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\calculators\juros-compostos-form.tsx
+   7:32  warning  'Save' is defined but never used             @typescript-eslint/no-unused-vars
+  23:5   warning  'FormDescription' is defined but never used  @typescript-eslint/no-unused-vars
+  55:46  error    Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\calculators\materiais-construcao-form.tsx
+  16:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  32:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\calculators\rescisao-form.tsx
+   7:10  warning  'format' is defined but never used        @typescript-eslint/no-unused-vars
+   8:10  warning  'ptBR' is defined but never used          @typescript-eslint/no-unused-vars
+   9:10  warning  'CalendarIcon' is defined but never used  @typescript-eslint/no-unused-vars
+   9:46  warning  'Save' is defined but never used          @typescript-eslint/no-unused-vars
+  55:46  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\calculators\salario-liquido-form.tsx
+   7:32  warning  'Save' is defined but never used                    @typescript-eslint/no-unused-vars
+   7:38  warning  'Info' is defined but never used                    @typescript-eslint/no-unused-vars
+  24:10  warning  'Tooltip' is defined but never used                 @typescript-eslint/no-unused-vars
+  24:19  warning  'TooltipContent' is defined but never used          @typescript-eslint/no-unused-vars
+  24:35  warning  'TooltipProvider' is defined but never used         @typescript-eslint/no-unused-vars
+  24:52  warning  'TooltipTrigger' is defined but never used          @typescript-eslint/no-unused-vars
+  37:46  error    Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+  58:11  warning  'formatPercent' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\calculators\save-calculation-dialog.tsx
+  25:13  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  26:14  error    Unexpected any. Specify a different type           @typescript-eslint/no-explicit-any
+  38:13  warning  'subscription' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\layout\user-menu.tsx
+  14:10  warning  'User' is defined but never used      @typescript-eslint/no-unused-vars
+  14:41  warning  'Settings' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\seo\schema-markup.tsx
+  4:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\components\subscription\upgrade-dialog.tsx
+  3:10  warning  'useState' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\hooks\use-toast.ts
+  18:7  warning  'actionTypes' is assigned a value but only used as a type  @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\lib\ab-testing.ts
+  100:47  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  101:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  139:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\lib\auth.ts
+  8:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\lib\blog.ts
+  27:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\lib\calculators\ferias-proporcionais.ts
+   1:10  warning  'calcularINSS' is defined but never used          @typescript-eslint/no-unused-vars
+   1:24  warning  'calcularIRRF' is defined but never used          @typescript-eslint/no-unused-vars
+  31:55  warning  'dependentes' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\lib\calculators\rescisao.ts
+   37:10  warning  'diffMonths' is defined but never used                              @typescript-eslint/no-unused-vars
+   88:9   error    'current' is never reassigned. Use 'const' instead                  prefer-const
+  124:9   error    'inicioPeriodoAquisitivo' is never reassigned. Use 'const' instead  prefer-const
+  135:13  error    'nextMonth' is never reassigned. Use 'const' instead                prefer-const
+  197:11  warning  'baseIRRFSalario' is assigned a value but never used                @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\lib\calculators\seguro-desemprego.ts
+  56:7  error  'terceiraFaixa' is never reassigned. Use 'const' instead  prefer-const
+
+C:\Users\lucas.bevilacqua\Documents\callpro\lib\content-refresh.ts
+  28:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\lib\generate-image.ts
+  70:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\lib\internal-linking.ts
+   24:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   25:15  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  157:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  161:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\lib\performance-tracker.ts
+  27:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\lib\prisma.ts
+  12:79  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\lib\seo-agent.ts
+    4:10  warning  'generateContentCalendar' is defined but never used  @typescript-eslint/no-unused-vars
+    5:10  warning  'generateFeaturedImage' is defined but never used    @typescript-eslint/no-unused-vars
+   20:14  error    Unexpected any. Specify a different type             @typescript-eslint/no-explicit-any
+   39:13  error    Unexpected any. Specify a different type             @typescript-eslint/no-explicit-any
+   82:33  error    Unexpected any. Specify a different type             @typescript-eslint/no-explicit-any
+  134:29  error    Unexpected any. Specify a different type             @typescript-eslint/no-explicit-any
+  181:29  error    Unexpected any. Specify a different type             @typescript-eslint/no-explicit-any
+  210:29  error    Unexpected any. Specify a different type             @typescript-eslint/no-explicit-any
+  225:21  error    Unexpected any. Specify a different type             @typescript-eslint/no-explicit-any
+  240:43  error    Unexpected any. Specify a different type             @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\lib\seo-reporting.ts
+  31:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  89:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\lib\seo-strategy.ts
+   99:11  warning  'postsPerWeek' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  102:9   error    'currentDate' is never reassigned. Use 'const' instead  prefer-const
+
+C:\Users\lucas.bevilacqua\Documents\callpro\scripts\content-calendar.ts
+  57:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\scripts\generate-post.ts
+   21:15  warning  'recentPosts' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   21:51  error    Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  117:34  error    Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  124:49  error    Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  140:44  error    Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  167:21  error    Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\scripts\generate-prisma.js
+   1:1   error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   2:22  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  10:10  warning  'error' is defined but never used        @typescript-eslint/no-unused-vars
+
+C:\Users\lucas.bevilacqua\Documents\callpro\scripts\generate-report.ts
+  18:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  43:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\scripts\make-admin.ts
+  19:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  25:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\scripts\verify-db-forced.ts
+  20:49  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  23:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\scripts\verify-db.ts
+  18:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\lucas.bevilacqua\Documents\callpro\scripts\verify-decimo.ts
+   2:10  warning  'calcularINSS' is defined but never used                                                                             @typescript-eslint/no-unused-vars
+   2:24  warning  'calcularIRRF' is defined but never used                                                                             @typescript-eslint/no-unused-vars
+  36:9   error    Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  38:13  error    Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+C:\Users\lucas.bevilacqua\Documents\callpro\scripts\verify-financiamento.ts
+  53:5  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  55:9  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  58:9  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+C:\Users\lucas.bevilacqua\Documents\callpro\scripts\verify-horas-extras.ts
+  47:9   error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  49:13  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+C:\Users\lucas.bevilacqua\Documents\callpro\scripts\verify-juros.ts
+  47:5  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  49:9  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  53:9  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  57:5  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  59:9  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  63:9  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+C:\Users\lucas.bevilacqua\Documents\callpro\scripts\verify-rescisao.ts
+  42:9   error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  44:13  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+C:\Users\lucas.bevilacqua\Documents\callpro\scripts\verify-salario-liquido.ts
+  49:9   error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  51:13  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+✖ 170 problems (98 errors, 72 warnings)
+  5 errors and 0 warnings potentially fixable with the `--fix` option.
+

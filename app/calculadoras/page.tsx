@@ -12,7 +12,7 @@ import {
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 export const metadata: Metadata = {
-    title: "Todas as Calculadoras | CalcPro.br",
+    title: "Todas as Calculadoras | calcprobr.com",
     description: "Acesse 11 calculadoras profissionais: Trabalhista, Freelancer, Financeira, Construção. Grátis e atualizadas para 2025.",
 }
 
@@ -66,36 +66,36 @@ const categories = [
 
 export default function CalculadorasPage() {
     return (
-        <div className="container py-10 space-y-10">
-            <div className="text-center space-y-4">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12 md:py-16 lg:py-20">
+            <div className="text-center space-y-4 md:space-y-6 mb-12 md:mb-16">
+                <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
                     Nossas Calculadoras
                 </h1>
-                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+                <p className="mx-auto max-w-[700px] text-base md:text-lg text-muted-foreground px-4 sm:px-0">
                     Ferramentas precisas para facilitar o seu dia a dia profissional e pessoal.
                 </p>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {categories.map((category) => (
-                    <Card key={category.title} className="flex flex-col">
-                        <CardHeader>
-                            <div className="flex items-center gap-2 mb-2">
-                                <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                    <Card key={category.title} className="flex flex-col hover:shadow-lg transition-shadow">
+                        <CardHeader className="space-y-3">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2.5 rounded-lg bg-primary/10 text-primary">
                                     <category.icon className="h-6 w-6" />
                                 </div>
-                                <CardTitle>{category.title}</CardTitle>
+                                <CardTitle className="text-xl">{category.title}</CardTitle>
                             </div>
-                            <CardDescription>{category.description}</CardDescription>
+                            <CardDescription className="text-sm">{category.description}</CardDescription>
                         </CardHeader>
                         <CardContent className="flex-1">
                             {category.items.length > 0 ? (
-                                <ul className="space-y-2">
+                                <ul className="space-y-3">
                                     {category.items.map((item) => (
                                         <li key={item.href}>
                                             <Link
                                                 href={item.href}
-                                                className="group flex items-center justify-between text-sm font-medium hover:text-primary transition-colors"
+                                                className="group flex items-center justify-between text-sm font-medium hover:text-primary transition-colors py-1"
                                             >
                                                 <span className="flex items-center gap-2">
                                                     {item.name}

@@ -3,7 +3,7 @@ import { SeguroDesempregoForm } from "@/components/calculators/seguro-desemprego
 import { SchemaMarkup, generateWebApplicationSchema, generateFAQSchema } from "@/components/seo/schema-markup";
 
 export const metadata: Metadata = {
-  title: "Calculadora de Seguro-Desemprego 2025 | CalcPro.br",
+  title: "Calculadora de Seguro-Desemprego 2025 | calcprobr.com",
   description: "Calcule quantas parcelas e o valor do seguro-desemprego você tem direito. Atualizado com as regras 2025.",
   keywords: ["seguro desemprego", "calcular seguro desemprego", "parcelas seguro", "valor seguro desemprego"],
 };
@@ -33,7 +33,7 @@ export default function SeguroDesempregoPage() {
       <SchemaMarkup data={generateWebApplicationSchema(
         "Calculadora de Seguro-Desemprego",
         "Calcule o valor e número de parcelas do seguro-desemprego",
-        "https://calcpro.br/calculadora/trabalhista/seguro-desemprego"
+        "https://calcprobr.com/calculadora/trabalhista/seguro-desemprego"
       )} />
       <SchemaMarkup data={generateFAQSchema(faqs)} />
 

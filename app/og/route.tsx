@@ -78,7 +78,7 @@ export async function GET(request: Request) {
                             fontWeight: 500,
                         }}
                     >
-                        CalcPro.br
+                        calcprobr.com
                     </div>
                 </div>
             ),

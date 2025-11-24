@@ -1,4 +1,4 @@
-# Status de Implementação - CalcPro.br
+# Status de Implementação - calcprobr.com
 **Data:** 22 de Novembro de 2025  
 **Versão PRD:** 1.0
 

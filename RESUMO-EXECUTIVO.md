@@ -1,4 +1,4 @@
-# 📊 Resumo Executivo - CalcPro.br
+# 📊 Resumo Executivo - calcprobr.com
 
 **Data:** 22 de Novembro de 2025  
 **Status:** Monetização Implementada ✅
@@ -198,7 +198,7 @@ IMPLEMENTACAO-COMPLETA.md
 ## 💡 Diferenciais Implementados
 
 ### vs. Concorrentes
-| Feature | CalcPro.br | Concorrentes |
+| Feature | calcprobr.com | Concorrentes |
 |---------|------------|--------------|
 | Design Moderno | ✅ | ❌ |
 | Mobile-First | ✅ | ❌ |

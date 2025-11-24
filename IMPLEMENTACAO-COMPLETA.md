@@ -1,4 +1,4 @@
-# ✅ Implementação de Monetização Completa - CalcPro.br
+# ✅ Implementação de Monetização Completa - calcprobr.com
 
 ## 🎉 O Que Foi Implementado
 

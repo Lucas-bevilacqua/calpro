@@ -11,7 +11,7 @@ import { getUserSubscription } from "@/lib/subscription"
 import { SubscriptionBadge } from "@/components/subscription/subscription-badge"
 
 export const metadata: Metadata = {
-    title: "Dashboard | CalcPro.br",
+    title: "Dashboard | calcprobr.com",
     description: "Gerencie suas simulações e preferências.",
 }
 

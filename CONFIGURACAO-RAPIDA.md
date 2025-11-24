@@ -126,7 +126,7 @@ npm run dev
 2. Clique em **"Get started"**
 3. Entre com sua conta Google
 4. Preencha:
-   - URL do site: `calcpro.br` (ou seu domínio)
+   - URL do site: `calcprobr.com` (ou seu domínio)
    - País: Brasil
    - Aceite os termos
 
@@ -156,7 +156,7 @@ NEXT_PUBLIC_ADSENSE_CLIENT_ID=ca-pub-XXXXXXXXXXXXXXXX
 
 1. Clique em **"Sites"**
 2. Clique em **"Add site"**
-3. Digite seu domínio: `calcpro.br`
+3. Digite seu domínio: `calcprobr.com`
 4. Siga as instruções para verificar (geralmente via DNS ou arquivo HTML)
 
 ### Passo 4: Aguardar Aprovação
@@ -273,7 +273,7 @@ GOOGLE_CLIENT_SECRET=... (opcional)
 **No Vercel:**
 
 1. Vá em **Settings** → **Domains**
-2. Adicione seu domínio: `calcpro.br`
+2. Adicione seu domínio: `calcprobr.com`
 3. Configure o DNS conforme instruções
 4. Aguarde propagação (5-30 minutos)
 

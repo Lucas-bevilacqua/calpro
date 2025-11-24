@@ -1,0 +1,33 @@
+remote: error: GH013: Repository rule violations found for refs/heads/main.        
+remote: 
+remote: - GITHUB PUSH PROTECTION        
+remote:   —————————————————————————————————————————        
+remote:     Resolve the following violations before pushing again        
+remote: 
+remote:     - Push cannot contain secrets        
+remote: 
+remote:             
+remote:      (?) Learn how to resolve a blocked push        
+remote:      https://docs.github.com/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push        
+remote:             
+remote:      (?) This repository does not have Secret Scanning enabled, but is eligible. Enable Secret Scanning to view and manage detected secrets.        
+remote:      Visit the repository settings page, https://github.com/Lucas-bevilacqua/calpro/settings/security_analysis        
+remote:             
+remote:             
+remote:       —— OpenAI API Key ————————————————————————————————————        
+remote:        locations:        
+remote:          - commit: d8e491784499141e1f8240f2f6870fa4081754fc        
+remote:            path: .env:20        
+remote:          - commit: 1dfb74e077f5d90573c74a558671bbef1ad0b62e        
+remote:            path: .env:31        
+remote:          - commit: 7e3b9505d3e53e02bdd66c39104a1828c42efe84        
+remote:            path: .env:54        
+remote:             
+remote:        (?) To push, remove secret from commit(s) or follow this URL to allow the secret.        
+remote:        https://github.com/Lucas-bevilacqua/calpro/security/secret-scanning/unblock-secret/35tKxxj1KfcYJnFakbF2nJmI3IZ        
+remote:             
+remote: 
+remote: 
+To https://github.com/Lucas-bevilacqua/calpro.git
+ ! [remote rejected] main -> main (push declined due to repository rule violations)
+error: failed to push some refs to 'https://github.com/Lucas-bevilacqua/calpro.git'

@@ -1,0 +1,7 @@
+{
+  "clientVersion": "5.22.0",
+  "isRetryable": false,
+  "name": "InvalidDatasourceError",
+  "code": "P6001"
+}
+InvalidDatasourceError: Error validating datasource `db`: the URL must start with the protocol `prisma://`

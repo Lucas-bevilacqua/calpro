@@ -3,7 +3,7 @@ import { FinanciamentoForm } from "@/components/calculators/financiamento-form";
 import { SchemaMarkup, generateWebApplicationSchema, generateFAQSchema } from "@/components/seo/schema-markup";
 
 export const metadata: Metadata = {
-    title: "Calculadora de Financiamento SAC e Price | CalcPro.br",
+    title: "Calculadora de Financiamento SAC e Price | calcprobr.com",
     description: "Simule seu financiamento imobiliário ou de veículos. Compare as tabelas SAC (parcelas decrescentes) e Price (parcelas fixas).",
     keywords: ["calculadora financiamento", "tabela sac", "tabela price", "simulador habitacional", "financiamento imobiliario"],
 };
@@ -48,7 +48,7 @@ export default function FinanciamentoPage() {
             </div>
 
             <SchemaMarkup data={{
-                ...generateWebApplicationSchema("Calculadora de Financiamento", "Simule financiamentos SAC e Price.", "https://calcpro.br/calculadora/financeira/financiamento"),
+                ...generateWebApplicationSchema("Calculadora de Financiamento", "Simule financiamentos SAC e Price.", "https://calcprobr.com/calculadora/financeira/financiamento"),
                 ...generateFAQSchema(faqData)
             }} />
         </div>

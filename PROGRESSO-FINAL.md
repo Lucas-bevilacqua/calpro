@@ -1,4 +1,4 @@
-# 🎉 Progresso Final - CalcPro.br
+# 🎉 Progresso Final - calcprobr.com
 
 **Data:** 22 de Novembro de 2025  
 **Status:** 70% MVP Completo

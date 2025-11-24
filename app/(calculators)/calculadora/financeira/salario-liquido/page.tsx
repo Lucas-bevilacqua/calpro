@@ -3,7 +3,7 @@ import { SalarioLiquidoForm } from "@/components/calculators/salario-liquido-for
 import { SchemaMarkup, generateWebApplicationSchema, generateFAQSchema } from "@/components/seo/schema-markup";
 
 export const metadata: Metadata = {
-    title: "Calculadora de Salário Líquido 2025 - CLT | CalcPro.br",
+    title: "Calculadora de Salário Líquido 2025 - CLT | calcprobr.com",
     description: "Calcule seu salário líquido exato com os descontos de INSS e Imposto de Renda (IRRF) 2025. Descubra quanto cai na sua conta.",
     keywords: ["calculadora salario liquido", "calcular salario liquido", "desconto inss", "desconto irrf", "salario liquido 2025"],
 };
@@ -51,7 +51,7 @@ export default function SalarioLiquidoPage() {
             </div>
 
             <SchemaMarkup data={{
-                ...generateWebApplicationSchema("Calculadora de Salário Líquido", "Calcule seu salário líquido online.", "https://calcpro.br/calculadora/financeira/salario-liquido"),
+                ...generateWebApplicationSchema("Calculadora de Salário Líquido", "Calcule seu salário líquido online.", "https://calcprobr.com/calculadora/financeira/salario-liquido"),
                 ...generateFAQSchema(faqData)
             }} />
         </div>

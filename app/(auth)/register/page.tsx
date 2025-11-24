@@ -77,7 +77,7 @@ export default function RegisterPage() {
             toast({
                 variant: "destructive",
                 title: "Erro ao criar conta",
-                description: "Ocorreu um erro ao tentar criar sua conta. Tente novamente.",
+                description: error instanceof Error ? error.message : "Ocorreu um erro ao tentar criar sua conta. Tente novamente.",
             })
         } finally {
             setIsLoading(false)

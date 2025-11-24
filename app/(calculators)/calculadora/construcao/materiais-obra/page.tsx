@@ -3,7 +3,7 @@ import { MateriaisConstrucaoForm } from "@/components/calculators/materiais-cons
 import { SchemaMarkup, generateWebApplicationSchema, generateFAQSchema } from "@/components/seo/schema-markup";
 
 export const metadata: Metadata = {
-  title: "Calculadora de Materiais de Construção 2025 | CalcPro.br",
+  title: "Calculadora de Materiais de Construção 2025 | calcprobr.com",
   description: "Calcule a quantidade de materiais para sua obra: concreto, tijolos, argamassa, tinta, pisos e telhas. Evite desperdício e economize.",
   keywords: ["materiais construção", "calcular concreto", "quantidade tijolos", "tinta parede", "materiais obra"],
 };
@@ -33,7 +33,7 @@ export default function MateriaisConstrucaoPage() {
       <SchemaMarkup data={generateWebApplicationSchema(
         "Calculadora de Materiais de Construção",
         "Calcule a quantidade de materiais para sua obra",
-        "https://calcpro.br/calculadora/construcao/materiais-obra"
+        "https://calcprobr.com/calculadora/construcao/materiais-obra"
       )} />
       <SchemaMarkup data={generateFAQSchema(faqs)} />
 

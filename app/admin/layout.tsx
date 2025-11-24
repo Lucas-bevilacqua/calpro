@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { LayoutDashboard, Users, FileText, Settings } from "lucide-react"
+import { LayoutDashboard, Users, FileText, Settings, Sparkles } from "lucide-react"
 
 export default function AdminLayout({
     children,
@@ -33,6 +33,12 @@ export default function AdminLayout({
                                     <Button variant="ghost" className="w-full justify-start">
                                         <FileText className="mr-2 h-4 w-4" />
                                         Posts
+                                    </Button>
+                                </Link>
+                                <Link href="/admin/seo">
+                                    <Button variant="ghost" className="w-full justify-start">
+                                        <Sparkles className="mr-2 h-4 w-4" />
+                                        SEO Manager
                                     </Button>
                                 </Link>
                                 <Link href="/admin/settings">

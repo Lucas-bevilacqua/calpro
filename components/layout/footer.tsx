@@ -9,7 +9,7 @@ export function Footer() {
                     <div className="col-span-2 md:col-span-1">
                         <Link href="/" className="flex items-center space-x-2">
                             <Calculator className="h-6 w-6 text-primary" />
-                            <span className="text-xl font-bold tracking-tight">CalcPro.br</span>
+                            <span className="text-xl font-bold tracking-tight">calcprobr.com</span>
                         </Link>
                         <p className="mt-4 text-sm text-muted-foreground">
                             A calculadora certa para cada profissional brasileiro. Precisa, rápida e gratuita.
@@ -45,7 +45,7 @@ export function Footer() {
                     </div>
                 </div>
                 <div className="mt-10 border-t pt-8 text-center text-sm text-muted-foreground">
-                    <p>&copy; {new Date().getFullYear()} CalcPro.br. Todos os direitos reservados.</p>
+                    <p>&copy; {new Date().getFullYear()} calcprobr.com. Todos os direitos reservados.</p>
                 </div>
             </div>
         </footer>

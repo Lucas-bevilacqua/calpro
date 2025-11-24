@@ -9,7 +9,7 @@ import { Inter } from "next/font/google"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "CalcPro.br - Calculadoras Trabalhistas e Financeiras",
+  title: "calcprobr.com - Calculadoras Trabalhistas e Financeiras",
   description: "Calculadoras precisas para rescisão, férias, 13º salário, financiamentos e muito mais.",
 }
 
@@ -30,6 +30,25 @@ export default function RootLayout({
             crossOrigin="anonymous"
           />
         )}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "calcprobr.com",
+              "url": "https://calcprobr.com",
+              "description": "Calculadoras precisas para rescisão, férias, 13º salário, financiamentos e muito mais.",
+              "applicationCategory": "FinanceApplication",
+              "operatingSystem": "Any",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "BRL"
+              }
+            })
+          }}
+        />
       </head>
       <body className={inter.className}>
         <AuthProvider>

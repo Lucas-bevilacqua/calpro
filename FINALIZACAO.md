@@ -1,4 +1,4 @@
-# 🎉 Finalização da Implementação - CalcPro.br
+# 🎉 Finalização da Implementação - calcprobr.com
 
 **Data:** 22 de Novembro de 2025  
 **Status:** ✅ 75% MVP Completo

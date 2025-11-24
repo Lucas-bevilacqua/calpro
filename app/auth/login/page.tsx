@@ -2,8 +2,8 @@ import { Metadata } from "next"
 import { LoginForm } from "@/components/auth/login-form"
 
 export const metadata: Metadata = {
-    title: "Entrar | CalcPro.br",
-    description: "Entre na sua conta CalcPro.br",
+    title: "Entrar | calcprobr.com",
+    description: "Entre na sua conta calcprobr.com",
 }
 
 export default function LoginPage() {

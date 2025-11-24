@@ -3,7 +3,7 @@ import { ImpostosMEIForm } from "@/components/calculators/impostos-mei-form";
 import { SchemaMarkup, generateWebApplicationSchema, generateFAQSchema } from "@/components/seo/schema-markup";
 
 export const metadata: Metadata = {
-  title: "Calculadora de Impostos MEI 2025 - DAS Mensal | CalcPro.br",
+  title: "Calculadora de Impostos MEI 2025 - DAS Mensal | calcprobr.com",
   description: "Calcule o valor do DAS (Documento de Arrecadação do Simples) do MEI. Descubra quanto pagar mensalmente de impostos como Microempreendedor Individual.",
   keywords: ["impostos mei", "das mei", "calcular das", "mei 2025", "microempreendedor individual"],
 };
@@ -33,7 +33,7 @@ export default function ImpostosMEIPage() {
       <SchemaMarkup data={generateWebApplicationSchema(
         "Calculadora de Impostos MEI",
         "Calcule o valor do DAS mensal do MEI",
-        "https://calcpro.br/calculadora/freelancer/impostos-mei"
+        "https://calcprobr.com/calculadora/freelancer/impostos-mei"
       )} />
       <SchemaMarkup data={generateFAQSchema(faqs)} />
 

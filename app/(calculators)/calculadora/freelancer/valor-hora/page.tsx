@@ -3,7 +3,7 @@ import { ValorHoraForm } from "@/components/calculators/valor-hora-form";
 import { SchemaMarkup, generateWebApplicationSchema, generateFAQSchema } from "@/components/seo/schema-markup";
 
 export const metadata: Metadata = {
-  title: "Calculadora de Valor/Hora Freelancer 2025 | CalcPro.br",
+  title: "Calculadora de Valor/Hora Freelancer 2025 | calcprobr.com",
   description: "Calcule quanto cobrar por hora como freelancer. Considere custos, impostos e margem de lucro para definir seu preço justo.",
   keywords: ["valor hora freelancer", "quanto cobrar freelancer", "preço hora", "calcular valor hora"],
 };
@@ -33,7 +33,7 @@ export default function ValorHoraPage() {
       <SchemaMarkup data={generateWebApplicationSchema(
         "Calculadora de Valor/Hora Freelancer",
         "Calcule quanto cobrar por hora como freelancer",
-        "https://calcpro.br/calculadora/freelancer/valor-hora"
+        "https://calcprobr.com/calculadora/freelancer/valor-hora"
       )} />
       <SchemaMarkup data={generateFAQSchema(faqs)} />
 

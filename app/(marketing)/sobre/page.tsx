@@ -3,8 +3,8 @@ import { CheckCircle2, Target, Users, Shield } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const metadata: Metadata = {
-    title: "Sobre | CalcPro.br",
-    description: "Conheça o CalcPro.br - ferramentas de cálculo profissionais, gratuitas e atualizadas para 2025.",
+    title: "Sobre | calcprobr.com",
+    description: "Conheça o calcprobr.com - ferramentas de cálculo profissionais, gratuitas e atualizadas para 2025.",
 };
 
 export default function SobrePage() {
@@ -12,7 +12,7 @@ export default function SobrePage() {
         <div className="container py-10 space-y-10">
             <div className="text-center space-y-4">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                    Sobre o CalcPro.br
+                    Sobre o calcprobr.com
                 </h1>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
                     Ferramentas de cálculo profissionais, gratuitas e sempre atualizadas.
@@ -22,12 +22,12 @@ export default function SobrePage() {
             <div className="max-w-3xl mx-auto prose dark:prose-invert">
                 <h2>Nossa Missão</h2>
                 <p>
-                    O CalcPro.br nasceu com o objetivo de democratizar o acesso a ferramentas de cálculo profissionais.
+                    O calcprobr.com nasceu com o objetivo de democratizar o acesso a ferramentas de cálculo profissionais.
                     Acreditamos que todos devem ter acesso a calculadoras precisas e confiáveis para tomar decisões
                     financeiras e trabalhistas informadas.
                 </p>
 
-                <h2>Por que confiar no CalcPro.br?</h2>
+                <h2>Por que confiar no calcprobr.com?</h2>
                 <p>
                     Todas as nossas calculadoras são desenvolvidas com base na legislação brasileira vigente,
                     incluindo as tabelas de INSS, IRRF e regras da CLT atualizadas para 2025. Nosso compromisso
@@ -107,7 +107,7 @@ export default function SobrePage() {
                 <h2>Contato</h2>
                 <p>
                     Tem sugestões ou encontrou algum erro? Entre em contato conosco através do email:
-                    <strong> contato@calcpro.br</strong>
+                    <strong> contato@calcprobr.com</strong>
                 </p>
             </div>
         </div>

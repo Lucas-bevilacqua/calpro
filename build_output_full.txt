@@ -1,0 +1,25 @@
+
+> callpro@0.1.0 build
+> prisma generate && next build
+
+Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+Error: Prisma schema validation - (get-dmmf wasm)
+Error code: P1012
+[1;91merror[0m: [1mType "ContentPlan" is neither a built-in type, nor refers to another model, composite type, or enum.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:136[0m
+[1;94m   | [0m
+[1;94m135 | [0m  
+[1;94m136 | [0m  contentPlan [1;91mContentPlan[0m?
+[1;94m   | [0m
+[1;91merror[0m: [1mType "SEOMetrics" is neither a built-in type, nor refers to another model, composite type, or enum.[0m
+  [1;94m-->[0m  [4mprisma\schema.prisma:137[0m
+[1;94m   | [0m
+[1;94m136 | [0m  contentPlan ContentPlan?
+[1;94m137 | [0m  seoMetrics  [1;91mSEOMetrics[0m?
+[1;94m   | [0m
+
+Validation Error Count: 2
+[Context: getDmmf]
+
+Prisma CLI Version : 5.22.0

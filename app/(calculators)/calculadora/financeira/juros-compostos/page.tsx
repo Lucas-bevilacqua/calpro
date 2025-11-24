@@ -3,7 +3,7 @@ import { JurosCompostosForm } from "@/components/calculators/juros-compostos-for
 import { SchemaMarkup, generateWebApplicationSchema, generateFAQSchema } from "@/components/seo/schema-markup";
 
 export const metadata: Metadata = {
-    title: "Calculadora de Juros Compostos Online | CalcPro.br",
+    title: "Calculadora de Juros Compostos Online | calcprobr.com",
     description: "Simule seus investimentos com juros compostos. Calcule o retorno de aplicações mensais e veja seu patrimônio crescer.",
     keywords: ["calculadora juros compostos", "simulador investimento", "calcular juros", "rendimento composto"],
 };
@@ -52,7 +52,7 @@ export default function JurosCompostosPage() {
             </div>
 
             <SchemaMarkup data={{
-                ...generateWebApplicationSchema("Calculadora de Juros Compostos", "Simule investimentos com juros compostos.", "https://calcpro.br/calculadora/financeira/juros-compostos"),
+                ...generateWebApplicationSchema("Calculadora de Juros Compostos", "Simule investimentos com juros compostos.", "https://calcprobr.com/calculadora/financeira/juros-compostos"),
                 ...generateFAQSchema(faqData)
             }} />
         </div>

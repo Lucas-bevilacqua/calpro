@@ -132,6 +132,9 @@ model Post {
   updatedAt DateTime @updatedAt
 
   author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  
+  contentPlan Json?
+  seoMetrics  Json?
 }
 
 model Subscription {

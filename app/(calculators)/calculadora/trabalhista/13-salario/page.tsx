@@ -2,7 +2,7 @@ import { Metadata } from "next"
 import { DecimoTerceiroForm } from "@/components/calculators/decimo-terceiro-form"
 
 export const metadata: Metadata = {
-    title: "Calculadora de 13º Salário 2025 - Primeira e Segunda Parcela | CalcPro.br",
+    title: "Calculadora de 13º Salário 2025 - Primeira e Segunda Parcela | calcprobr.com",
     description: "Calcule o valor exato do seu Décimo Terceiro Salário. Veja quanto receber na primeira parcela (adiantamento) e na segunda parcela com descontos.",
     keywords: ["calculadora 13 salario", "calcular decimo terceiro", "primeira parcela 13", "segunda parcela 13"],
 }

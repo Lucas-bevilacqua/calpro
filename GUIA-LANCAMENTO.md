@@ -1,4 +1,4 @@
-# 🚀 Guia de Lançamento - CalcPro.br
+# 🚀 Guia de Lançamento - calcprobr.com
 
 **Data:** 22 de Novembro de 2025  
 **Versão:** Beta 1.0
@@ -76,7 +76,7 @@ Produto 2: CalcPro PRO Anual
 ```
 Dashboard → Developers → Webhooks → Add endpoint
 
-URL: https://calcpro.br/api/stripe/webhook
+URL: https://calcprobr.com/api/stripe/webhook
 
 Eventos:
 ☑ checkout.session.completed
@@ -182,14 +182,14 @@ npx prisma generate
 ```
 1. Acesse https://search.google.com/search-console
 2. Adicionar propriedade → Prefixo de URL
-3. URL: https://calcpro.br
+3. URL: https://calcprobr.com
 4. Verificar propriedade (via DNS ou arquivo HTML)
 ```
 
 #### Passo 2: Enviar Sitemap
 ```
 Sitemaps → Adicionar sitemap
-URL: https://calcpro.br/sitemap.xml
+URL: https://calcprobr.com/sitemap.xml
 ```
 
 #### Passo 3: Monitorar
@@ -293,7 +293,7 @@ Settings → Environment Variables
 Adicionar TODAS as variáveis do .env.local:
 - DATABASE_URL
 - DIRECT_URL
-- NEXTAUTH_URL (https://calcpro.br)
+- NEXTAUTH_URL (https://calcprobr.com)
 - NEXTAUTH_SECRET
 - STRIPE_SECRET_KEY (usar chave de produção!)
 - STRIPE_PUBLISHABLE_KEY (usar chave de produção!)
@@ -315,7 +315,7 @@ Adicionar TODAS as variáveis do .env.local:
 #### Passo 4: Configurar Domínio
 ```
 Settings → Domains
-Adicionar: calcpro.br
+Adicionar: calcprobr.com
 Configurar DNS conforme instruções
 ```
 

@@ -1,4 +1,4 @@
-# CalcPro.br - Calculadoras Profissionais
+# calcprobr.com - Calculadoras Profissionais
 
 > A calculadora certa para cada profissional brasileiro
 
@@ -8,7 +8,7 @@
 
 ## 🎯 Sobre o Projeto
 
-CalcPro.br é uma plataforma de calculadoras profissionais especializadas para o mercado brasileiro. Oferecemos ferramentas precisas e atualizadas para cálculos trabalhistas, financeiros, freelancer e construção.
+calcprobr.com é uma plataforma de calculadoras profissionais especializadas para o mercado brasileiro. Oferecemos ferramentas precisas e atualizadas para cálculos trabalhistas, financeiros, freelancer e construção.
 
 ### Potencial de Mercado
 - **221.000 buscas/mês** de potencial orgânico
@@ -258,8 +258,8 @@ Este projeto está sob a licença MIT. Ver [LICENSE](LICENSE) para mais informa�
 
 ## 📞 Contato
 
-- Website: [calcpro.br](https://calcpro.br)
-- Email: contato@calcpro.br
+- Website: [calcprobr.com](https://calcprobr.com)
+- Email: contato@calcprobr.com
 - Twitter: [@calcprobr](https://twitter.com/calcprobr)
 
 ---

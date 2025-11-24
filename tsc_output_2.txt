@@ -1,0 +1,3 @@
+﻿lib/generate-image.ts(42,26): error TS18048: 'response.data' is possibly 'undefined'.
+lib/internal-linking.ts(172,18): error TS7006: Parameter 'match' implicitly has an 'any' type.
+lib/internal-linking.ts(174,29): error TS7006: Parameter 'slug' implicitly has an 'any' type.

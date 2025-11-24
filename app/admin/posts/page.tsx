@@ -10,11 +10,12 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
-import { Loader2, Plus, Pencil, Trash2 } from "lucide-react"
+import { Loader2, Plus, Pencil, Trash2, Sparkles } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { format } from "date-fns"
 import { ptBR } from "date-fns/locale"
 import Link from "next/link"
+import { GeneratePostDialog } from "@/components/admin/generate-post-dialog"
 
 interface Post {
     id: string
@@ -30,6 +31,7 @@ interface Post {
 export default function PostsPage() {
     const [posts, setPosts] = useState<Post[]>([])
     const [isLoading, setIsLoading] = useState(true)
+    const [showGenerateDialog, setShowGenerateDialog] = useState(false)
     const { toast } = useToast()
 
     useEffect(() => {
@@ -77,79 +79,107 @@ export default function PostsPage() {
         }
     }
 
-    if (isLoading) {
-        return (
-            <div className="flex justify-center items-center h-64">
-                <Loader2 className="h-8 w-8 animate-spin" />
-            </div>
-        )
-    }
-
     return (
-        <div className="space-y-6">
-            <div className="flex items-center justify-between">
+        <div className="space-y-6 md:space-y-8">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
-                    <h3 className="text-lg font-medium">Posts</h3>
-                    <p className="text-sm text-muted-foreground">
-                        Gerencie os artigos do blog.
+                    <h3 className="text-2xl md:text-3xl font-bold tracking-tight">Posts</h3>
+                    <p className="text-sm md:text-base text-muted-foreground">
+                        Gerencie os posts do blog
                     </p>
                 </div>
-                <Link href="/admin/posts/new">
-                    <Button>
-                        <Plus className="mr-2 h-4 w-4" />
-                        Novo Post
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                    <Button
+                        onClick={() => setShowGenerateDialog(true)}
+                        variant="outline"
+                        className="w-full sm:w-auto"
+                    >
+                        <Sparkles className="mr-2 h-4 w-4" />
+                        Gerar com IA
                     </Button>
-                </Link>
+                    <Link href="/admin/posts/new" className="w-full sm:w-auto">
+                        <Button className="w-full">
+                            <Plus className="mr-2 h-4 w-4" />
+                            Novo Post
+                        </Button>
+                    </Link>
+                </div>
             </div>
-            <div className="border rounded-md">
-                <Table>
-                    <TableHeader>
-                        <TableRow>
-                            <TableHead>Título</TableHead>
-                            <TableHead>Status</TableHead>
-                            <TableHead>Autor</TableHead>
-                            <TableHead>Data</TableHead>
-                            <TableHead className="text-right">Ações</TableHead>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        {posts.map((post) => (
-                            <TableRow key={post.id}>
-                                <TableCell className="font-medium">{post.title}</TableCell>
-                                <TableCell>
-                                    <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${post.published
-                                            ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-                                            : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
-                                        }`}>
-                                        {post.published ? "Publicado" : "Rascunho"}
-                                    </span>
-                                </TableCell>
-                                <TableCell>{post.author?.name || "Desconhecido"}</TableCell>
-                                <TableCell>
-                                    {format(new Date(post.createdAt), "dd/MM/yyyy", { locale: ptBR })}
-                                </TableCell>
-                                <TableCell className="text-right">
-                                    <div className="flex justify-end gap-2">
-                                        <Link href={`/admin/posts/${post.id}`}>
-                                            <Button variant="ghost" size="icon">
-                                                <Pencil className="h-4 w-4" />
-                                            </Button>
-                                        </Link>
-                                        <Button
-                                            variant="ghost"
-                                            size="icon"
-                                            onClick={() => handleDelete(post.id)}
-                                            className="text-red-600 hover:text-red-700 hover:bg-red-50"
-                                        >
-                                            <Trash2 className="h-4 w-4" />
-                                        </Button>
-                                    </div>
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </div>
+
+            {isLoading ? (
+                <div className="flex justify-center items-center h-64">
+                    <Loader2 className="h-8 w-8 animate-spin" />
+                </div>
+            ) : posts.length === 0 ? (
+                <div className="text-center py-12 md:py-16 border rounded-lg">
+                    <p className="text-base md:text-lg text-muted-foreground">Nenhum post encontrado</p>
+                </div>
+            ) : (
+                <div className="border rounded-lg overflow-hidden">
+                    <div className="overflow-x-auto">
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="min-w-[200px]">Título</TableHead>
+                                    <TableHead className="hidden md:table-cell">Autor</TableHead>
+                                    <TableHead className="hidden lg:table-cell">Data</TableHead>
+                                    <TableHead className="hidden sm:table-cell">Status</TableHead>
+                                    <TableHead className="text-right">Ações</TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {posts.map((post) => (
+                                    <TableRow key={post.id}>
+                                        <TableCell className="font-medium">
+                                            <div className="max-w-[300px] truncate">{post.title}</div>
+                                            <div className="text-xs text-muted-foreground mt-1 sm:hidden">
+                                                {post.author.name} • {post.published ? "Publicado" : "Rascunho"}
+                                            </div>
+                                        </TableCell>
+                                        <TableCell className="hidden md:table-cell">{post.author.name}</TableCell>
+                                        <TableCell className="hidden lg:table-cell">
+                                            {format(new Date(post.createdAt), "dd/MM/yyyy", { locale: ptBR })}
+                                        </TableCell>
+                                        <TableCell className="hidden sm:table-cell">
+                                            <span
+                                                className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${post.published
+                                                    ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                                                    : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
+                                                    }`}
+                                            >
+                                                {post.published ? "Publicado" : "Rascunho"}
+                                            </span>
+                                        </TableCell>
+                                        <TableCell className="text-right">
+                                            <div className="flex justify-end gap-1 sm:gap-2">
+                                                <Link href={`/admin/posts/${post.id}`}>
+                                                    <Button variant="ghost" size="icon" className="h-8 w-8">
+                                                        <Pencil className="h-4 w-4" />
+                                                    </Button>
+                                                </Link>
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                    className="h-8 w-8"
+                                                    onClick={() => handleDelete(post.id)}
+                                                >
+                                                    <Trash2 className="h-4 w-4" />
+                                                </Button>
+                                            </div>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
+                </div>
+            )}
+
+            <GeneratePostDialog
+                open={showGenerateDialog}
+                onOpenChange={setShowGenerateDialog}
+                onPostGenerated={fetchPosts}
+            />
         </div>
     )
 }

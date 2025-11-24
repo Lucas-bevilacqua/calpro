@@ -12,7 +12,7 @@ interface AdSenseProps {
 export function AdSense({ slot, format = 'auto', responsive = true, className = '' }: AdSenseProps) {
   useEffect(() => {
     try {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID) {
         ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
       }
     } catch (err) {
@@ -23,7 +23,12 @@ export function AdSense({ slot, format = 'auto', responsive = true, className = 
   const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 
   if (!clientId) {
-    return null; // Não renderiza se não tiver client ID configurado
+    return (
+      <div className={`p-4 border-2 border-dashed border-gray-300 rounded-lg bg-gray-50 text-center text-gray-500 text-sm my-4 ${className}`}>
+        <p className="font-semibold">AdSpace (Slot: {slot})</p>
+        <p>AdSense Client ID not configured</p>
+      </div>
+    );
   }
 
   return (

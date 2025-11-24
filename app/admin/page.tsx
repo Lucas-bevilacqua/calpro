@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Users, FileText, Activity } from "lucide-react"
 
 export const metadata: Metadata = {
-    title: "Admin Dashboard | CalcPro.br",
+    title: "Admin Dashboard | calcprobr.com",
     description: "Painel administrativo.",
 }
 

@@ -1,8 +1,21 @@
 import { MetadataRoute } from 'next';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://calcpro.br';
+import { getAllPosts } from '@/lib/blog';
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = 'https://www.calcprobr.com';
   const currentDate = new Date();
+
+  // Fetch all blog posts
+  const posts = await getAllPosts();
+
+  // Blog posts sitemap
+  const blogPosts = posts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
 
   // Páginas estáticas
   const staticPages = [
@@ -97,5 +110,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...calculadorasFreelancer,
     ...calculadorasFinanceira,
     ...calculadorasConstrucao,
+    ...blogPosts,
   ];
 }

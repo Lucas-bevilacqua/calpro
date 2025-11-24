@@ -2,7 +2,7 @@ import { Metadata } from "next"
 import { HorasExtrasForm } from "@/components/calculators/horas-extras-form"
 
 export const metadata: Metadata = {
-    title: "Calculadora de Horas Extras 2025 - Com DSR | CalcPro.br",
+    title: "Calculadora de Horas Extras 2025 - Com DSR | calcprobr.com",
     description: "Calcule o valor das suas horas extras online. Inclui cálculo automático do DSR (Descanso Semanal Remunerado) e adicionais de 50% e 100%.",
     keywords: ["calculadora horas extras", "calcular hora extra", "valor hora extra", "dsr horas extras"],
 }

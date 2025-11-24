@@ -1,0 +1,25 @@
+﻿app/admin/posts/page.tsx(84,14): error TS17008: JSX element 'div' has no corresponding closing tag.
+app/admin/posts/page.tsx(95,1): error TS1109: Expression expected.
+app/admin/posts/page.tsx(105,23): error TS1005: '}' expected.
+app/admin/posts/page.tsx(111,25): error TS1005: '}' expected.
+app/admin/posts/page.tsx(112,5): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+app/admin/posts/page.tsx(113,1): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+app/admin/posts/page.tsx(116,5): error TS1109: Expression expected.
+app/admin/posts/page.tsx(116,44): error TS1003: Identifier expected.
+app/admin/posts/page.tsx(116,46): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+app/admin/posts/page.tsx(121,19): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+app/admin/posts/page.tsx(126,9): error TS1109: Expression expected.
+app/admin/posts/page.tsx(127,13): error TS1109: Expression expected.
+app/admin/posts/page.tsx(131,9): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+app/admin/posts/page.tsx(140,5): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+app/admin/posts/page.tsx(143,9): error TS1109: Expression expected.
+app/admin/posts/page.tsx(146,13): error TS1109: Expression expected.
+app/admin/posts/page.tsx(147,27): error TS1005: '}' expected.
+app/admin/posts/page.tsx(148,13): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+app/admin/posts/page.tsx(152,43): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+app/admin/posts/page.tsx(154,26): error TS1005: '}' expected.
+app/admin/posts/page.tsx(156,13): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+app/admin/posts/page.tsx(157,9): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+app/admin/posts/page.tsx(164,5): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+app/admin/posts/page.tsx(269,1): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+app/admin/posts/page.tsx(270,1): error TS1005: '</' expected.

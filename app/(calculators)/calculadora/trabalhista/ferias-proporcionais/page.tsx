@@ -3,7 +3,7 @@ import { FeriasProporcionaisForm } from "@/components/calculators/ferias-proporc
 import { SchemaMarkup, generateWebApplicationSchema, generateFAQSchema } from "@/components/seo/schema-markup";
 
 export const metadata: Metadata = {
-  title: "Calculadora de Férias Proporcionais 2025 - CLT | CalcPro.br",
+  title: "Calculadora de Férias Proporcionais 2025 - CLT | calcprobr.com",
   description: "Calcule o valor das férias proporcionais com 1/3 constitucional. Atualizado com as regras da CLT 2025. Grátis e preciso.",
   keywords: ["férias proporcionais", "calcular férias", "1/3 férias", "férias clt", "avos de férias"],
 };
@@ -33,7 +33,7 @@ export default function FeriasProporcionaisPage() {
       <SchemaMarkup data={generateWebApplicationSchema(
         "Calculadora de Férias Proporcionais",
         "Calcule o valor das férias proporcionais com 1/3 constitucional",
-        "https://calcpro.br/calculadora/trabalhista/ferias-proporcionais"
+        "https://calcprobr.com/calculadora/trabalhista/ferias-proporcionais"
       )} />
       <SchemaMarkup data={generateFAQSchema(faqs)} />
 

@@ -2,8 +2,8 @@ import { Metadata } from "next"
 import { RegisterForm } from "@/components/auth/register-form"
 
 export const metadata: Metadata = {
-    title: "Criar Conta | CalcPro.br",
-    description: "Crie sua conta CalcPro.br",
+    title: "Criar Conta | calcprobr.com",
+    description: "Crie sua conta calcprobr.com",
 }
 
 export default function RegisterPage() {

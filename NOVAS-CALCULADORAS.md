@@ -1,4 +1,4 @@
-# 🎉 4 Novas Calculadoras Implementadas - CalcPro.br
+# 🎉 4 Novas Calculadoras Implementadas - calcprobr.com
 
 **Data:** 22 de Novembro de 2025  
 **Status:** ✅ Completo
