@@ -1,108 +1,102 @@
 import { Metadata } from "next";
 import { SeguroDesempregoForm } from "@/components/calculators/seguro-desemprego-form";
+import { ShareButtons } from "@/components/ui/share-buttons";
 import { SchemaMarkup, generateWebApplicationSchema, generateFAQSchema } from "@/components/seo/schema-markup";
 
 export const metadata: Metadata = {
-  title: "Calculadora de Seguro-Desemprego 2025 | calcprobr.com",
-  description: "Calcule quantas parcelas e o valor do seguro-desemprego você tem direito. Atualizado com as regras 2025.",
-  keywords: ["seguro desemprego", "calcular seguro desemprego", "parcelas seguro", "valor seguro desemprego"],
+  title: "Calculadora de Seguro-Desemprego 2025 (Valor e Parcelas) | CalcPro",
+  description: "Descubra se você tem direito e calcule o valor exato do Seguro-Desemprego. Veja quantas parcelas vai receber. Atualizado com o novo salário mínimo.",
+  keywords: ["seguro desemprego", "calcular seguro desemprego", "parcelas seguro", "valor seguro desemprego", "quem tem direito seguro desemprego"],
 };
 
 const faqs = [
   {
     question: "Quem tem direito ao seguro-desemprego?",
-    answer: "Tem direito ao seguro-desemprego o trabalhador dispensado sem justa causa que comprove: ter recebido salários nos últimos 18 meses, ter trabalhado pelo menos 12 meses (1ª solicitação), 9 meses (2ª solicitação) ou 6 meses (3ª solicitação em diante), e não possuir renda própria suficiente."
+    answer: "Trabalhadores demitidos sem justa causa que não possuem renda própria. É preciso ter trabalhado pelo menos 12 meses (1ª solicitação), 9 meses (2ª solicitação) ou 6 meses (3ª solicitação)."
   },
   {
-    question: "Quantas parcelas do seguro-desemprego posso receber?",
-    answer: "O número de parcelas varia de 3 a 5, dependendo do tempo trabalhado: 6 a 11 meses = 3 parcelas; 12 a 23 meses = 4 parcelas; 24 meses ou mais = 5 parcelas."
+    question: "Qual o valor máximo do seguro-desemprego em 2025?",
+    answer: "O valor máximo da parcela é de R$ 2.313,74. Ninguém recebe mais que isso, mesmo que tenha salário muito alto. O valor mínimo é o salário mínimo vigente (R$ 1.412,00)."
   },
   {
-    question: "Como é calculado o valor do seguro-desemprego?",
-    answer: "O valor é calculado com base na média dos últimos 3 salários, usando uma tabela progressiva: até R$ 2.313,74 recebe 80%; de R$ 2.313,74 a R$ 3.856,23 recebe 50% do excedente; acima disso, valor fixo máximo."
+    question: "Quantas parcelas vou receber?",
+    answer: "Depende do tempo de trabalho: De 6 a 11 meses = 3 parcelas; De 12 a 23 meses = 4 parcelas; Acima de 24 meses = 5 parcelas."
   },
   {
-    question: "Qual o valor mínimo e máximo do seguro-desemprego?",
-    answer: "O valor mínimo é de R$ 1.412,00 (salário mínimo 2025) e o máximo é de R$ 2.313,74."
+    question: "Qual o prazo para dar entrada?",
+    answer: "O trabalhador formal tem de 7 a 120 dias após a data da demissão para solicitar o benefício. Trabalhadores domésticos têm de 7 a 90 dias."
   }
 ];
 
 export default function SeguroDesempregoPage() {
   return (
-    <>
-      <SchemaMarkup data={generateWebApplicationSchema(
-        "Calculadora de Seguro-Desemprego",
-        "Calcule o valor e número de parcelas do seguro-desemprego",
-        "https://calcprobr.com/calculadora/trabalhista/seguro-desemprego"
-      )} />
-      <SchemaMarkup data={generateFAQSchema(faqs)} />
-
-      <div className="container py-10 space-y-10">
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold tracking-tight text-primary">
-            Calculadora de Seguro-Desemprego
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            Verifique se você tem direito ao seguro-desemprego e calcule o valor das parcelas. 
-            Atualizado com as regras de 2025.
-          </p>
-        </div>
-
-        <SeguroDesempregoForm />
-
-        <div className="max-w-3xl mx-auto prose dark:prose-invert">
-          <h2>Como funciona o seguro-desemprego?</h2>
-          <p>
-            O seguro-desemprego é um benefício temporário concedido ao trabalhador dispensado sem justa causa. 
-            O objetivo é auxiliar financeiramente durante o período de procura por um novo emprego.
-          </p>
-
-          <h3>Requisitos para receber</h3>
-          <ul>
-            <li><strong>1ª solicitação:</strong> Ter trabalhado pelo menos 12 meses nos últimos 18 meses</li>
-            <li><strong>2ª solicitação:</strong> Ter trabalhado pelo menos 9 meses nos últimos 12 meses</li>
-            <li><strong>3ª solicitação em diante:</strong> Ter trabalhado pelo menos 6 meses</li>
-            <li>Ter sido dispensado sem justa causa</li>
-            <li>Não estar recebendo benefício previdenciário (exceto auxílio-acidente e pensão por morte)</li>
-            <li>Não possuir renda própria suficiente</li>
-          </ul>
-
-          <h3>Número de parcelas</h3>
-          <p>O número de parcelas varia conforme o tempo trabalhado:</p>
-          <ul>
-            <li><strong>6 a 11 meses:</strong> 3 parcelas</li>
-            <li><strong>12 a 23 meses:</strong> 4 parcelas</li>
-            <li><strong>24 meses ou mais:</strong> 5 parcelas</li>
-          </ul>
-
-          <h3>Cálculo do valor</h3>
-          <p>
-            O valor é calculado com base na média dos últimos 3 salários, aplicando uma tabela progressiva:
-          </p>
-          <ul>
-            <li><strong>Até R$ 2.313,74:</strong> 80% do salário médio</li>
-            <li><strong>De R$ 2.313,74 a R$ 3.856,23:</strong> R$ 1.850,99 + 50% do que exceder R$ 2.313,74</li>
-            <li><strong>Acima de R$ 3.856,23:</strong> Valor fixo de R$ 2.313,74</li>
-          </ul>
-
-          <h3>Como solicitar</h3>
-          <ol>
-            <li>Aguardar 7 a 120 dias após a demissão</li>
-            <li>Acessar o Portal Emprega Brasil ou aplicativo Carteira de Trabalho Digital</li>
-            <li>Preencher o requerimento online</li>
-            <li>Aguardar análise (geralmente 30 dias)</li>
-            <li>Receber as parcelas mensalmente</li>
-          </ol>
-
-          <div className="bg-muted p-4 rounded-lg mt-6">
-            <h3 className="mt-0">Atenção</h3>
-            <p className="mb-0">
-              Este cálculo é uma estimativa. O valor oficial será determinado pelo Ministério do Trabalho 
-              após análise do seu requerimento. Consulte sempre o Portal Emprega Brasil para informações atualizadas.
-            </p>
-          </div>
-        </div>
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-8 md:py-12 lg:py-16">
+      <div className="text-center space-y-4 md:space-y-6 max-w-4xl mx-auto mb-8 md:mb-12">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-primary">
+          Calculadora de Seguro-Desemprego
+        </h1>
+        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+          Foi demitido? Veja quanto você vai receber de auxílio enquanto busca uma nova oportunidade.
+        </p>
       </div>
-    </>
+
+      <SeguroDesempregoForm />
+
+      <div className="max-w-4xl mx-auto prose prose-stone dark:prose-invert mt-12">
+        <h2>Guia do Seguro-Desemprego 2025</h2>
+        <p>
+          O Seguro-Desemprego é um dos benefícios mais importantes do trabalhador brasileiro. Ele serve como uma "rede de proteção" financeira após uma demissão involuntária.
+        </p>
+
+        <div className="bg-card p-6 rounded-xl border shadow-sm my-8 not-prose">
+          <h3 className="text-xl font-bold mb-4">💰 Como é calculado o valor?</h3>
+          <p className="text-muted-foreground mb-4">
+            O cálculo considera a <strong>média dos seus últimos 3 salários</strong> anteriores à demissão.
+          </p>
+          <ul className="space-y-3 text-sm">
+            <li className="flex items-start gap-2">
+              <span className="bg-primary/10 text-primary font-bold px-2 rounded">Faixa 1</span>
+              <span>Média até <strong>R$ 2.041,39</strong>: Multiplica-se por 0,8 (80%).</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="bg-primary/10 text-primary font-bold px-2 rounded">Faixa 2</span>
+              <span>Média entre <strong>R$ 2.041,40 e R$ 3.402,65</strong>: O que exceder R$ 2.041,39 multiplica-se por 0,5 (50%) e soma-se a R$ 1.633,10.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="bg-primary/10 text-primary font-bold px-2 rounded">Faixa 3</span>
+              <span>Média acima de <strong>R$ 3.402,65</strong>: O valor da parcela será fixo em <strong>R$ 2.313,74</strong>.</span>
+            </li>
+          </ul>
+        </div>
+
+        <h3>Passo a Passo para Solicitar</h3>
+        <ol>
+          <li><strong>Reúna os documentos:</strong> TRCT (Termo de Rescisão), Carteira de Trabalho e Documento de Identidade.</li>
+          <li><strong>Acesse o App:</strong> Baixe o aplicativo "Carteira de Trabalho Digital" ou acesse o portal Gov.br.</li>
+          <li><strong>Solicite:</strong> Vá na aba "Benefícios" e selecione "Seguro-Desemprego".</li>
+          <li><strong>Acompanhe:</strong> O sistema informará a data de liberação das parcelas.</li>
+        </ol>
+
+        <p>
+          <strong>Importante:</strong> Você não pode ter renda própria (CNPJ com faturamento ou outro emprego) para receber o benefício.
+        </p>
+      </div>
+
+      <div className="max-w-4xl mx-auto mt-12">
+        <ShareButtons
+          title="Calculadora de Seguro-Desemprego - CalcPro"
+          description="Veja quantas parcelas e qual o valor do seu Seguro-Desemprego."
+        />
+      </div>
+
+      <SchemaMarkup data={{
+        ...generateWebApplicationSchema(
+          "Calculadora de Seguro-Desemprego",
+          "Calcule o valor e número de parcelas do seguro-desemprego.",
+          "https://calcprobr.com/calculadora/trabalhista/seguro-desemprego"
+        ),
+        ...generateFAQSchema(faqs)
+      }} />
+    </div>
   );
 }
