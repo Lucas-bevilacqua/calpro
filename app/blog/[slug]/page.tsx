@@ -6,6 +6,7 @@ import { MDXRemote } from "next-mdx-remote/rsc"
 import Link from "next/link"
 import { ChevronLeft, CalendarIcon, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Breadcrumbs } from "@/components/seo/breadcrumbs"
 
 interface BlogPostPageProps {
     params: Promise<{
@@ -54,6 +55,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     </Button>
                 </Link>
             </div>
+
+            <Breadcrumbs
+                items={[
+                    { name: 'Blog', href: '/blog' },
+                    { name: post.title, href: `/blog/${post.slug}` }
+                ]}
+            />
 
             <div className="space-y-4 mb-8 text-center">
                 <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
