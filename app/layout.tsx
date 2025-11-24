@@ -24,6 +24,23 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-GGNK21MXTN"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-GGNK21MXTN');
+            `,
+          }}
+        />
+
+        {/* Google AdSense */}
         {adsenseId && (
           <script
             async
@@ -31,6 +48,8 @@ export default function RootLayout({
             crossOrigin="anonymous"
           />
         )}
+
+        {/* Structured Data */}
         <WebSiteSchema />
         <OrganizationSchema />
       </head>
