@@ -1,7 +1,9 @@
-import fs from 'fs'
-import path from 'path'
+import { PrismaClient } from '@prisma/client'
+import * as dotenv from 'dotenv'
 
-const postsDir = path.join(process.cwd(), 'content/blog')
+dotenv.config({ path: '.env', override: true })
+
+const prisma = new PrismaClient()
 
 // Map of post slugs to specific "Expert Content" to inject
 const expertContent: Record<string, string> = {
@@ -94,31 +96,34 @@ O limite máximo é de **2 horas extras por dia**. Acima disso, a empresa pode s
 }
 
 async function enhancePosts() {
-    const files = fs.readdirSync(postsDir)
+    console.log('Iniciando atualização dos posts...')
 
-    for (const file of files) {
-        if (!file.endsWith('.mdx')) continue
+    for (const [slug, contentToAdd] of Object.entries(expertContent)) {
+        const post = await prisma.post.findUnique({
+            where: { slug }
+        })
 
-        const filePath = path.join(postsDir, file)
-        let content = fs.readFileSync(filePath, 'utf-8')
-        const slug = file.replace('.mdx', '')
-
-        // Check if we have expert content for this post
-        if (expertContent[slug]) {
-            console.log(`Enhancing ${slug}...`)
-
-            // Append expert content before the end, but before any existing "Conclusão" if possible
-            // For simplicity, we'll append it before the last paragraph or section
-
-            const expertSection = `\n\n${expertContent[slug]}\n\n`
-
-            // If content doesn't already have this section (avoid duplicates)
-            if (!content.includes(expertContent[slug].substring(0, 20))) {
-                content += expertSection
-                fs.writeFileSync(filePath, content)
+        if (post) {
+            // Check if content already exists to avoid duplication
+            if (!post.content.includes(contentToAdd.substring(0, 20))) {
+                await prisma.post.update({
+                    where: { slug },
+                    data: {
+                        content: post.content + '\n\n' + contentToAdd
+                    }
+                })
+                console.log(`✅ Post atualizado: ${slug}`)
+            } else {
+                console.log(`ℹ️  Post já atualizado: ${slug}`)
             }
+        } else {
+            console.log(`⚠️  Post não encontrado: ${slug}`)
         }
     }
+
+    console.log('Atualização concluída!')
 }
 
 enhancePosts()
+    .catch(e => console.error(e))
+    .finally(async () => await prisma.$disconnect())
