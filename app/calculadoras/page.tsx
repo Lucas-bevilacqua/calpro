@@ -60,7 +60,11 @@ const categories = [
         title: "Contábil",
         icon: FileText,
         description: "Simples Nacional, Lucro Presumido e MEI.",
-        items: []
+        items: [
+            { name: "Pró-Labore", href: "/calculadora/contabil/pro-labore", badge: "🆕" },
+            { name: "Lucro Presumido", href: "/calculadora/contabil/lucro-presumido", badge: "🆕" },
+            { name: "Ponto de Equilíbrio", href: "/calculadora/contabil/ponto-equilibrio", badge: "🆕" },
+        ]
     }
 ]
 
