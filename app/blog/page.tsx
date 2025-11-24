@@ -10,6 +10,8 @@ export const metadata = {
     description: "Dicas de finanças, direitos trabalhistas e novidades do calcprobr.com.",
 }
 
+export const revalidate = 60; // Revalidate every 60 seconds
+
 export default async function BlogPage() {
     const posts = await getAllPosts()
 
