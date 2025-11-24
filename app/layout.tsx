@@ -61,12 +61,10 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
-          <Footer />
-        </div>
-        <Toaster />
-        <SonnerToaster />
-      </AuthProvider>
-    </body>
+          <Toaster />
+          <SonnerToaster />
+        </AuthProvider>
+      </body>
     </html >
   )
 }
