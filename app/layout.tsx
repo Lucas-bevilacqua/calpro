@@ -1,5 +1,6 @@
 import { AuthProvider } from "@/components/auth/auth-provider"
 import { Toaster } from "@/components/ui/toaster"
+import { Toaster as SonnerToaster } from "sonner"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { WebSiteSchema, OrganizationSchema } from "@/components/seo/structured-data"
@@ -60,9 +61,12 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
-          <Toaster />
-        </AuthProvider>
-      </body>
-    </html>
+          <Footer />
+        </div>
+        <Toaster />
+        <SonnerToaster />
+      </AuthProvider>
+    </body>
+    </html >
   )
 }

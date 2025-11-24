@@ -7,6 +7,7 @@ import Link from "next/link"
 import { ChevronLeft, CalendarIcon, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Breadcrumbs } from "@/components/seo/breadcrumbs"
+import { ShareButtons } from "@/components/ui/share-buttons"
 
 interface BlogPostPageProps {
     params: Promise<{
@@ -93,6 +94,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             <div className="prose prose-stone dark:prose-invert mx-auto max-w-none">
                 <MDXRemote source={post.content} />
+            </div>
+
+            <div className="mt-12">
+                <ShareButtons
+                    title={post.title}
+                    description={post.description}
+                />
             </div>
 
             {/* Author Bio Section */}
