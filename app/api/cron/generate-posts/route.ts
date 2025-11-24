@@ -13,7 +13,7 @@ const prisma = new PrismaClient().$extends(withAccelerate()) as unknown as Prism
 // {
 //   "crons": [{
 //     "path": "/api/cron/generate-posts",
-//     "schedule": "0 10 * * 1,4"  // Every Monday and Thursday at 10am
+//     "schedule": "0 10 * * 1,2,3,4,5"  // Monday-Friday at 10am (5 posts/week)
 //   }]
 // }
 
@@ -31,7 +31,7 @@ export async function GET(request: Request) {
 
         // Run SEO Agent automatically
         const result = await runSEOAgent(prisma, {
-            generateNewPosts: 2, // Generate 2 posts per run
+            generateNewPosts: 1, // Generate 1 post per run (5 per week)
             refreshOldPosts: true,
             addInternalLinks: true,
             generateReport: false // Don't generate report on cron
