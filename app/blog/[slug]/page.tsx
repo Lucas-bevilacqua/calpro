@@ -166,7 +166,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
             />
-            <article className="space-y-8">
+            <article className="space-y-6 md:space-y-8 px-4 sm:px-0">
                 <Breadcrumbs
                     items={[
                         { name: 'Blog', href: '/blog' },
@@ -174,25 +174,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     ]}
                 />
 
-                <div className="space-y-4 text-center">
-                    <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
+                <div className="space-y-3 md:space-y-4 text-center">
+                    <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
                         <div className="flex items-center gap-1">
-                            <CalendarIcon className="h-4 w-4" />
+                            <CalendarIcon className="h-3 w-3 sm:h-4 sm:w-4" />
                             <time dateTime={post.date}>
                                 {format(new Date(post.date), "d 'de' MMMM, yyyy", { locale: ptBR })}
                             </time>
                         </div>
-                        <span>•</span>
+                        <span className="hidden sm:inline">•</span>
                         <div className="flex items-center gap-1">
-                            <User className="h-4 w-4" />
+                            <User className="h-3 w-3 sm:h-4 sm:w-4" />
                             {post.author}
                         </div>
                     </div>
-                    <h1 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+                    <h1 className="font-heading text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl px-4 sm:px-0">
                         {post.title}
                     </h1>
                     {post.image && (
-                        <div className="mt-8 aspect-video w-full overflow-hidden rounded-lg border bg-muted">
+                        <div className="mt-6 md:mt-8 aspect-video w-full overflow-hidden rounded-lg border bg-muted">
                             <img
                                 src={post.image}
                                 alt={post.title}
@@ -202,11 +202,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     )}
                 </div>
 
-                <div className="prose prose-stone dark:prose-invert max-w-none">
+                <div className="prose prose-sm sm:prose-base prose-stone dark:prose-invert max-w-none">
                     <MDXRemote source={post.content} />
                 </div>
 
-                <div className="mt-12">
+                <div className="mt-8 md:mt-12">
                     <ShareButtons
                         title={post.title}
                         description={post.description}
@@ -214,19 +214,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </div>
 
                 {/* Author Bio Section */}
-                <div className="mt-12 pt-8 border-t">
-                    <div className="flex items-start gap-4">
+                <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t">
+                    <div className="flex flex-col sm:flex-row items-start gap-4">
                         <div className="flex-shrink-0">
                             <img
                                 src={post.author === "Equipe CalcPro" ? "/authors/equipe-calcpro.png" : "/authors/default.png"}
                                 alt={post.author}
-                                className="w-16 h-16 rounded-full object-cover"
+                                className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover"
                             />
                         </div>
                         <div className="flex-1">
-                            <h3 className="font-semibold text-lg mb-1">Sobre o Autor</h3>
-                            <p className="font-medium text-primary mb-2">{post.author}</p>
-                            <p className="text-sm text-muted-foreground">
+                            <h3 className="font-semibold text-base sm:text-lg mb-1">Sobre o Autor</h3>
+                            <p className="font-medium text-primary mb-2 text-sm sm:text-base">{post.author}</p>
+                            <p className="text-xs sm:text-sm text-muted-foreground">
                                 Especialistas em finanças pessoais e direito trabalhista brasileiro, dedicados a fornecer informações precisas e ferramentas úteis para ajudar você a tomar decisões financeiras informadas.
                             </p>
                         </div>

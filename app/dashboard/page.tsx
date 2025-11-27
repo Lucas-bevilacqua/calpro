@@ -9,6 +9,7 @@ import Link from "next/link"
 import { prisma } from "@/lib/prisma"
 import { getUserSubscription } from "@/lib/subscription"
 import { SubscriptionBadge } from "@/components/subscription/subscription-badge"
+import { ManageSubscriptionButton } from "@/components/subscription/manage-subscription-button"
 
 export const metadata: Metadata = {
     title: "Dashboard | calcprobr.com",
@@ -99,11 +100,7 @@ export default async function DashboardPage() {
                                 <p className="text-xs text-muted-foreground">
                                     Renovação: {'currentPeriodEnd' in subscription && subscription.currentPeriodEnd ? new Date(subscription.currentPeriodEnd).toLocaleDateString('pt-BR') : 'N/A'}
                                 </p>
-                                <form action="/api/stripe/portal" method="POST">
-                                    <Button variant="outline" size="sm" className="w-full">
-                                        Gerenciar Assinatura
-                                    </Button>
-                                </form>
+                                <ManageSubscriptionButton />
                             </div>
                         ) : (
                             <div className="space-y-2">
