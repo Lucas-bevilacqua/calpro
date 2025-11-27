@@ -19,17 +19,9 @@ interface BlogPostPageProps {
 export async function generateStaticParams() {
     const posts = await getAllPosts()
 
-    // Temporary: Filter out posts with known MDX errors
-    const brokenSlugs = [
-        'adicional-noturno-entenda-seus-direitos-e-horas-extras',
-        'como-calcular-seu-valor-hora-como-freelancer-e-aumentar-sua-renda'
-    ]
-
-    return posts
-        .filter(post => !brokenSlugs.includes(post.slug))
-        .map((post) => ({
-            slug: post.slug,
-        }))
+    return posts.map((post) => ({
+        slug: post.slug,
+    }))
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps) {
