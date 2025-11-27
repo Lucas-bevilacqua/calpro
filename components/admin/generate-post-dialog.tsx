@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import {
@@ -13,6 +11,8 @@ import {
 import { Loader2, Sparkles } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { useRouter } from "next/navigation"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Label } from "@/components/ui/label"
 
 interface GeneratePostDialogProps {
     open: boolean
@@ -22,6 +22,7 @@ interface GeneratePostDialogProps {
 
 export function GeneratePostDialog({ open, onOpenChange, onPostGenerated }: GeneratePostDialogProps) {
     const [isGenerating, setIsGenerating] = useState(false)
+    const [publishImmediately, setPublishImmediately] = useState(false)
     const { toast } = useToast()
     const router = useRouter()
 
@@ -52,7 +53,7 @@ export function GeneratePostDialog({ open, onOpenChange, onPostGenerated }: Gene
                 },
                 body: JSON.stringify({
                     ...generatedPost,
-                    published: false, // Save as draft
+                    published: publishImmediately,
                 }),
             })
 
@@ -64,7 +65,7 @@ export function GeneratePostDialog({ open, onOpenChange, onPostGenerated }: Gene
 
             toast({
                 title: "Post gerado com sucesso!",
-                description: `"${generatedPost.title}" foi salvo como rascunho.`,
+                description: `"${generatedPost.title}" foi ${publishImmediately ? 'publicado' : 'salvo como rascunho'}.`,
             })
 
             onOpenChange(false)
@@ -94,7 +95,6 @@ export function GeneratePostDialog({ open, onOpenChange, onPostGenerated }: Gene
                     </DialogTitle>
                     <DialogDescription>
                         A IA vai gerar um artigo completo sobre um tópico aleatório relacionado às calculadoras.
-                        O post será salvo como rascunho para você revisar antes de publicar.
                     </DialogDescription>
                 </DialogHeader>
 
@@ -103,15 +103,27 @@ export function GeneratePostDialog({ open, onOpenChange, onPostGenerated }: Gene
                         <p className="font-medium mb-2">O que será gerado:</p>
                         <ul className="list-disc list-inside space-y-1 text-muted-foreground">
                             <li>Título otimizado para SEO</li>
-                            <li>Conteúdo de 800+ palavras</li>
+                            <li>Conteúdo de 1800+ palavras</li>
+                            <li>Imagem de capa exclusiva (DALL-E 3)</li>
                             <li>Estrutura com subtítulos</li>
                             <li>Exemplos práticos</li>
                             <li>Call-to-action para calculadora</li>
                         </ul>
                     </div>
 
+                    <div className="flex items-center space-x-2">
+                        <Checkbox
+                            id="publish"
+                            checked={publishImmediately}
+                            onCheckedChange={(checked) => setPublishImmediately(checked as boolean)}
+                        />
+                        <Label htmlFor="publish" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                            Publicar imediatamente após gerar
+                        </Label>
+                    </div>
+
                     <p className="text-sm text-muted-foreground">
-                        ⚡ Custo estimado: ~$0.10-0.30 por post
+                        ⚡ Custo estimado: ~$0.10-0.30 por post (incluindo imagem)
                     </p>
                 </div>
 

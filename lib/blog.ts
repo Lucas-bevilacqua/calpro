@@ -8,6 +8,9 @@ export interface BlogPost {
     content: string
     author: string
     image?: string
+    keywords?: string[]
+    updatedAt?: string
+    published?: boolean
 }
 
 export async function getAllPosts(): Promise<BlogPost[]> {
@@ -32,6 +35,9 @@ export async function getAllPosts(): Promise<BlogPost[]> {
             content: post.content,
             author: post.author.name || "Equipe CalcPro",
             image: post.image || undefined,
+            keywords: (post.seoMetrics as any)?.keywords || undefined,
+            updatedAt: post.updatedAt?.toISOString(),
+            published: post.published,
         }))
     } catch (error) {
         console.error("Error fetching posts:", error)
@@ -61,6 +67,9 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
             content: post.content,
             author: post.author.name || "Equipe CalcPro",
             image: post.image || undefined,
+            keywords: (post.seoMetrics as any)?.keywords || undefined,
+            updatedAt: post.updatedAt?.toISOString(),
+            published: post.published,
         }
     } catch (error) {
         console.error("Error fetching post:", error)

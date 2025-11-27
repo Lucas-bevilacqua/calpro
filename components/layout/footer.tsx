@@ -32,13 +32,13 @@ export function Footer() {
                             <li><Link href="/sobre" className="hover:text-foreground">Sobre Nós</Link></li>
                             <li><Link href="/blog" className="hover:text-foreground">Blog</Link></li>
                             <li><Link href="/contato" className="hover:text-foreground">Contato</Link></li>
-                            <li><Link href="/privacidade" className="hover:text-foreground">Privacidade</Link></li>
                         </ul>
                     </div>
 
                     <div>
                         <h3 className="mb-4 text-sm font-semibold">Legal</h3>
                         <ul className="space-y-3 text-sm text-muted-foreground">
+                            <li><Link href="/privacidade" className="hover:text-foreground">Política de Privacidade</Link></li>
                             <li><Link href="/termos" className="hover:text-foreground">Termos de Uso</Link></li>
                             <li><Link href="/cookies" className="hover:text-foreground">Política de Cookies</Link></li>
                         </ul>

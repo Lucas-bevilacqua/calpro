@@ -55,6 +55,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
+    {
+      url: `${baseUrl}/privacidade`,
+      lastModified: new Date('2024-11-27'),
+      changeFrequency: 'yearly' as const,
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/termos`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/cookies`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly' as const,
+      priority: 0.5,
+    },
   ];
 
   // Calculadoras - Trabalhista
