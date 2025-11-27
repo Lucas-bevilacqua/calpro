@@ -1,0 +1,58 @@
+# ========================================
+# VARIÁVEIS PARA COPIAR NO VERCEL
+# ========================================
+# Acesse: https://vercel.com/dashboard
+# Vá em: Settings → Environment Variables
+# ========================================
+
+# ===== DATABASE (Supabase) =====
+DATABASE_URL=postgresql://postgres.YOUR_USER:YOUR_PASSWORD@aws-0-us-east-1.pooler.supabase.com:6543/postgres?pgbouncer=true
+
+DIRECT_URL=postgresql://postgres.YOUR_USER:YOUR_PASSWORD@aws-0-us-east-1.pooler.supabase.com:5432/postgres
+
+# ===== NEXTAUTH =====
+NEXTAUTH_URL=https://seu-dominio.vercel.app
+
+# ⚠️ GERE UM NOVO SECRET (não use o mesmo do local):
+# Execute: openssl rand -base64 32
+NEXTAUTH_SECRET=GERE_UM_NOVO_SECRET_AQUI
+
+# ===== STRIPE (LIVE MODE) =====
+# ⚠️ COPIE DO SEU .env.local (NÃO COMMITAR CHAVES REAIS)
+STRIPE_SECRET_KEY=sk_live_SEU_SECRET_KEY_AQUI
+
+STRIPE_PUBLISHABLE_KEY=pk_live_SEU_PUBLISHABLE_KEY_AQUI
+
+# ⚠️ IMPORTANTE: Este é o webhook LOCAL!
+# Você precisa criar um webhook DE PRODUÇÃO no Stripe:
+# 1. https://dashboard.stripe.com/webhooks
+# 2. Add endpoint → https://seu-dominio.vercel.app/api/stripe/webhook
+# 3. Copie o signing secret (whsec_...)
+STRIPE_WEBHOOK_SECRET=WEBHOOK_DE_PRODUCAO_AQUI
+
+STRIPE_PRICE_ID_PRO_MONTHLY=price_1SYBe1KkjJ7tububbgKyRJwq
+
+STRIPE_PRICE_ID_PRO_YEARLY=price_1SYBfvKkjJ7tububXemd41Tn
+
+# ===== GOOGLE ADSENSE (Opcional) =====
+NEXT_PUBLIC_ADSENSE_CLIENT_ID=
+
+# ===== CRON SECRET =====
+CRON_SECRET=gere_um_secret_aleatorio
+
+# ===== OPENAI (Opcional) =====
+OPENAI_API_KEY=
+
+# ========================================
+# CHECKLIST:
+# ========================================
+# [ ] Substituir DATABASE_URL com suas credenciais Supabase
+# [ ] Substituir DIRECT_URL com suas credenciais Supabase
+# [ ] Substituir NEXTAUTH_URL com seu domínio real
+# [ ] Gerar novo NEXTAUTH_SECRET (openssl rand -base64 32)
+# [ ] Criar webhook de PRODUÇÃO no Stripe
+# [ ] Copiar STRIPE_WEBHOOK_SECRET de produção
+# [ ] Adicionar todas no Vercel (Environment: Production)
+# [ ] Redeploy no Vercel
+# [ ] Testar checkout em produção
+# ========================================
