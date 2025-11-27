@@ -45,22 +45,22 @@ export default async function DashboardPage() {
     })
 
     return (
-        <div className="container py-10">
-            <div className="flex items-center justify-between mb-8">
+        <div className="container px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 md:mb-8">
                 <div>
-                    <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-                    <p className="text-muted-foreground">
+                    <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Dashboard</h1>
+                    <p className="text-sm sm:text-base text-muted-foreground">
                         Bem-vindo de volta, {session.user.name}!
                     </p>
                 </div>
                 {session.user.role === "ADMIN" && (
-                    <Link href="/admin">
-                        <Button variant="outline">Acessar Painel Admin</Button>
+                    <Link href="/admin" className="w-full sm:w-auto">
+                        <Button variant="outline" className="w-full sm:w-auto">Acessar Painel Admin</Button>
                     </Link>
                 )}
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                         <CardTitle className="text-sm font-medium">
@@ -167,8 +167,8 @@ export default async function DashboardPage() {
                 </Card>
             )}
 
-            <div className="mt-8">
-                <h2 className="text-xl font-semibold mb-4">Cálculos Recentes</h2>
+            <div className="mt-6 md:mt-8">
+                <h2 className="text-lg sm:text-xl font-semibold mb-4">Cálculos Recentes</h2>
                 {user.savedCalculations.length > 0 ? (
                     <div className="grid gap-4">
                         {user.savedCalculations.map((saved) => (
