@@ -18,9 +18,15 @@ interface BlogPostPageProps {
 
 export async function generateStaticParams() {
     const posts = await getAllPosts()
-    return posts.map((post) => ({
-        slug: post.slug,
-    }))
+
+    // Temporary: Filter out posts with known MDX errors
+    const brokenSlugs = ['adicional-noturno-entenda-seus-direitos-e-horas-extras']
+
+    return posts
+        .filter(post => !brokenSlugs.includes(post.slug))
+        .map((post) => ({
+            slug: post.slug,
+        }))
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps) {
