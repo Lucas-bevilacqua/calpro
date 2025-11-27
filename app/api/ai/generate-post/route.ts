@@ -188,16 +188,24 @@ Retorne APENAS o artigo em markdown puro, começando com o título H1.
             .replace(/[^a-z0-9]+/g, '-')
             .replace(/(^-|-$)/g, '')
 
-        // Generate featured image (optional - can be slow)
+        // Generate featured image (optional - can be slow and expensive)
         let imageUrl = '/images/default-blog.jpg'
-        try {
-            console.log('🎨 Generating featured image...')
-            const { generateFeaturedImage } = await import('@/lib/generate-image')
-            const image = await generateFeaturedImage(angle, topic.keywords)
-            imageUrl = image.localPath
-            console.log('✅ Image generated successfully')
-        } catch (imageError: any) {
-            console.warn('⚠️ Image generation failed, using default:', imageError.message)
+
+        // Only generate with DALL-E if explicitly enabled
+        const enableDallE = process.env.ENABLE_DALLE_IMAGES === 'true'
+
+        if (enableDallE) {
+            try {
+                console.log('🎨 Generating featured image with DALL-E...')
+                const { generateFeaturedImage } = await import('@/lib/generate-image')
+                const image = await generateFeaturedImage(angle, topic.keywords)
+                imageUrl = image.localPath
+                console.log('✅ Image generated successfully')
+            } catch (imageError: any) {
+                console.warn('⚠️ DALL-E generation failed, using default:', imageError.message)
+            }
+        } else {
+            console.log('ℹ️ DALL-E disabled, using default image')
         }
 
         return NextResponse.json({
