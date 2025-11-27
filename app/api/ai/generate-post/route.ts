@@ -30,52 +30,22 @@ export async function POST(req: Request) {
             topic = POST_TOPICS.find(
                 t => t.category === category && t.calculator === calculator
             )
+
             if (!topic) {
                 return new NextResponse('Topic not found', { status: 404 })
             }
+
             angle = getRandomAngle(topic)
         } else {
-            // Check for duplicate topics if random selection
-            // Fetch existing posts to avoid repetition
-            const existingPosts = await prisma.post.findMany({
-                select: { title: true, slug: true },
-            })
-
-            // Simple check against titles/slugs to avoid obvious duplicates
-            const usedSlugs = existingPosts.map((p: { slug: string }) => p.slug)
-
-            // Try up to 3 times to get a unique topic/angle
-            let attempts = 0
-            while (attempts < 3) {
-                const candidateTopic = getNextTopic()
-                const candidateAngle = getRandomAngle(candidateTopic)
-
-                // Basic check if angle is likely already used
-                const potentialSlug = candidateAngle
-                    .toLowerCase()
-                    .normalize('NFD')
-                    .replace(/[\u0300-\u036f]/g, '')
-                    .replace(/[^a-z0-9]+/g, '-')
-                    .replace(/(^-|-$)/g, '')
-
-                if (!usedSlugs.some((s: string) => s.includes(potentialSlug) || potentialSlug.includes(s))) {
-                    topic = candidateTopic
-                    angle = candidateAngle
-                    break
-                }
-                attempts++
-            }
-
-            // Fallback if we couldn't find a unique one after attempts
-            if (!topic || !angle) {
-                topic = getNextTopic()
-                angle = getRandomAngle(topic)
-            }
+            // Use next topic from rotation
+            topic = getNextTopic()
+            angle = getRandomAngle(topic)
         }
 
-        if (!topic || !angle) {
-            return new NextResponse('Failed to select a topic or angle', { status: 500 })
+        if (!topic) {
+            return new NextResponse('No topic available', { status: 400 })
         }
+
 
         // Generate blog post using OpenAI with improved hybrid prompt
         const prompt = customPrompt || `
@@ -96,7 +66,7 @@ Este artigo é para o calcprobr.com, um site brasileiro de calculadoras financei
    - Escreva uma meta description envolvente com 140-160 caracteres
    - Inclua a palavra-chave principal
    - Crie urgência ou curiosidade
-   - Formato: Comece o artigo com um comentário HTML: <!-- Meta Description: [seu texto aqui] -->
+   - Formato: Apenas o texto da descrição, sem tags ou comentários.
 
 3. **Introdução (Gancho Emocional):**
    - 3-4 parágrafos que conectem emocionalmente com o leitor
@@ -165,63 +135,49 @@ Este artigo é para o calcprobr.com, um site brasileiro de calculadoras financei
 **PROIBIÇÕES:**
 - NÃO use: "Descubra", "Revolucionário", "Incrível", "Surpreendente"
 - NÃO use clickbait ou promessas exageradas
-- NÃO inclua meta tags HTML ou código
-- NÃO force palavras-chave de forma não natural
-- NÃO use linguagem muito formal ou acadêmica
+- NÃO repita palavras-chave excessivamente
 
-**FORMATO FINAL:**
-- Use Markdown puro (H1, H2, H3, listas, **negrito**, *itálico*)
-- Comece com o comentário HTML da meta description
-- Depois o título H1
-- Depois a introdução
-- Desenvolvimento com H2 e H3
-- Conclusão
-- Resumo em bullet points
+**FORMATO DE SAÍDA:**
+Retorne APENAS o artigo em markdown puro, começando com o título H1.
+`.trim()
 
-**IMPORTANTE:**
-O artigo deve parecer escrito por um especialista brasileiro que realmente se importa em ajudar o leitor. Seja útil, prático e confiável. O objetivo é educar, não vender.
-`
+        console.log('🤖 Generating blog post with AI...')
+        console.log(`📝 Topic: ${topic.category} - ${topic.calculator}`)
+        console.log(`🎯 Angle: ${angle}`)
 
-        // Execute Text Generation and Image Generation in parallel
-        const [completion, imageResponse] = await Promise.all([
-            openai.chat.completions.create({
-                model: 'gpt-4o-mini',
-                messages: [
-                    {
-                        role: 'system',
-                        content: 'Você é um especialista em finanças pessoais e direito trabalhista brasileiro. Escreva conteúdo educativo, preciso e otimizado para SEO.'
-                    },
-                    {
-                        role: 'user',
-                        content: prompt
-                    }
-                ],
-                temperature: 0.7,
-                max_tokens: 2500,
-            }),
-            openai.images.generate({
-                model: "dall-e-3",
-                prompt: `Uma ilustração minimalista e profissional flat design para um artigo de blog sobre: ${angle}. Estilo corporativo moderno, cores suaves (azul, verde, branco), sem texto na imagem.`,
-                n: 1,
-                size: "1024x1024",
-                quality: "standard",
-            }).catch(e => {
-                console.error("Image generation failed:", e)
-                return null
-            })
-        ])
+        // Call OpenAI API
+        const completion = await openai.chat.completions.create({
+            model: 'gpt-4o-mini',
+            messages: [
+                {
+                    role: 'system',
+                    content: 'Você é um escritor especializado em conteúdo SEO para blogs brasileiros sobre finanças e direitos trabalhistas. Escreva artigos naturais, informativos e otimizados para SEO.'
+                },
+                {
+                    role: 'user',
+                    content: prompt
+                }
+            ],
+            temperature: 0.8,
+            max_tokens: 4000,
+        })
 
-        const content = completion.choices[0].message.content || ''
-        const imageUrl = imageResponse && imageResponse.data && imageResponse.data.length > 0
-            ? imageResponse.data[0].url
-            : null
+        const aiContent = completion.choices[0]?.message?.content
+        if (!aiContent) {
+            throw new Error('No content generated by AI')
+        }
 
-        // Extract title from content (first # heading)
-        const titleMatch = content.match(/^#\s+(.+)$/m)
-        const title = titleMatch ? titleMatch[1] : angle
+        console.log('✅ Content generated successfully')
+
+        // Extract title (first H1)
+        const titleMatch = aiContent.match(/^#\s+(.+)$/m)
+        const title = titleMatch ? titleMatch[1].trim() : angle
+
+        // Remove title from content to avoid duplication
+        const content = aiContent.replace(/^#\s+.+$/m, '').trim()
 
         // Generate excerpt (first 2 paragraphs)
-        const paragraphs = content.split('\n\n').filter(p => !p.startsWith('#'))
+        const paragraphs = content.split('\n\n').filter(p => !p.startsWith('#') && p.trim().length > 0)
         const excerpt = paragraphs.slice(0, 2).join('\n\n').substring(0, 200) + '...'
 
         // Generate slug
@@ -231,6 +187,18 @@ O artigo deve parecer escrito por um especialista brasileiro que realmente se im
             .replace(/[\u0300-\u036f]/g, '')
             .replace(/[^a-z0-9]+/g, '-')
             .replace(/(^-|-$)/g, '')
+
+        // Generate featured image (optional - can be slow)
+        let imageUrl = '/images/default-blog.jpg'
+        try {
+            console.log('🎨 Generating featured image...')
+            const { generateFeaturedImage } = await import('@/lib/generate-image')
+            const image = await generateFeaturedImage(angle, topic.keywords)
+            imageUrl = image.localPath
+            console.log('✅ Image generated successfully')
+        } catch (imageError: any) {
+            console.warn('⚠️ Image generation failed, using default:', imageError.message)
+        }
 
         return NextResponse.json({
             title,
