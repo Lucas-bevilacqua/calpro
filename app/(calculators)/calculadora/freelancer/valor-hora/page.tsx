@@ -37,12 +37,12 @@ export default function ValorHoraPage() {
       )} />
       <SchemaMarkup data={generateFAQSchema(faqs)} />
 
-      <div className="container py-10 space-y-10">
+      <div className="container px-4 sm:px-6 lg:px-8 py-8 md:py-10 space-y-8 md:space-y-10">
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold tracking-tight text-primary">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-primary">
             Calculadora de Valor/Hora Freelancer
           </h1>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
             Descubra quanto cobrar por hora considerando seus custos, impostos e margem de lucro. 
             Precifique seus serviços de forma justa e lucrativa.
           </p>

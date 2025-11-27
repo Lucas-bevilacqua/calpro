@@ -18,8 +18,8 @@ export default async function AdminPage() {
     }
 
     return (
-        <div className="container py-10">
-            <h1 className="text-3xl font-bold tracking-tight mb-8">Painel Administrativo</h1>
+        <div className="container px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight mb-8">Painel Administrativo</h1>
 
             <div className="grid gap-4 md:grid-cols-3">
                 <Card>

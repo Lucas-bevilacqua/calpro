@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function TermsPage() {
     return (
-        <div className="container py-10 max-w-3xl">
+        <div className="container px-4 sm:px-6 lg:px-8 py-8 md:py-10 max-w-3xl">
             <Card>
                 <CardHeader>
                     <CardTitle className="text-3xl font-bold">Termos de Uso</CardTitle>

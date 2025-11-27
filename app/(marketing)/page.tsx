@@ -10,7 +10,7 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex flex-col items-center space-y-6 md:space-y-8 text-center">
             <div className="space-y-4 md:space-y-6">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl max-w-4xl mx-auto leading-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl max-w-4xl mx-auto leading-tight">
                 Cálculos Precisos para{" "}
                 <span className="text-primary block sm:inline">Decisões Inteligentes</span>
               </h1>
