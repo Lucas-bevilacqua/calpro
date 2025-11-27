@@ -49,117 +49,130 @@ export async function POST(req: Request) {
 
         // Generate blog post using OpenAI with improved hybrid prompt
         const prompt = customPrompt || `
-Escreva um artigo de blog evergreen completo e otimizado para SEO sobre: "${angle}"
+Escreva um artigo de blog COMPLETO e DETALHADO otimizado para SEO sobre: "${angle}"
 
 **CONTEXTO:**
-Este artigo é para o calcprobr.com, um site brasileiro de calculadoras financeiras e trabalhistas que ajuda profissionais a tomar decisões informadas sobre finanças pessoais e direitos trabalhistas.
+Este artigo é para o calcprobr.com, um site brasileiro de calculadoras financeiras e trabalhistas. O objetivo é ranquear no Google e converter visitantes em usuários da calculadora.
 
-**ESTRUTURA E FORMATO:**
+**ESTRUTURA OBRIGATÓRIA (2.500-3.000 palavras):**
 
-1. **Título Principal (H1):**
-   - Atrativo, claro e otimizado para SEO
-   - Inclua a palavra-chave principal: "${topic.keywords[0]}"
+1. **Título H1:**
+   - Inclua: "${topic.keywords[0]}"
+   - Formato: "Como Calcular [X] em 2025: Guia Completo com Exemplos"
    - Máximo 60 caracteres
-   - Prometa valor concreto ao leitor
 
-2. **Meta Description:**
-   - Escreva uma meta description envolvente com 140-160 caracteres
-   - Inclua a palavra-chave principal
-   - Crie urgência ou curiosidade
-   - Formato: Apenas o texto da descrição, sem tags ou comentários.
+2. **Introdução (200 palavras):**
+   - Parágrafo 1: Situação real do dia a dia brasileiro
+   - Parágrafo 2: Problema que o artigo resolve (inclua palavra-chave)
+   - Parágrafo 3: O que o leitor vai aprender
+   - Parágrafo 4: Preview dos benefícios
 
-3. **Introdução (Gancho Emocional):**
-   - 3-4 parágrafos que conectem emocionalmente com o leitor
-   - Comece com uma reflexão, pergunta ou situação do dia a dia brasileiro
-   - Inclua a palavra-chave principal no segundo parágrafo
-   - Estabeleça o problema que o artigo resolve
-   - Mostre empatia com as dúvidas do leitor
+3. **Seção "O que é [X]?" (H2 - 300 palavras):**
+   - Definição clara e simples
+   - Por que é importante
+   - Contexto legal brasileiro (CLT, se aplicável)
+   - Exemplo prático
 
-4. **Desenvolvimento:**
-   - Mínimo de 1800 palavras no total
-   - Use subtítulos H2 e H3 para organizar o conteúdo
-   - Inclua a palavra-chave principal em pelo menos um H2
-   - Forneça exemplos práticos do contexto brasileiro
-   - Use frases curtas e diretas (máximo 20 palavras)
-   - Parágrafos de 2-4 linhas para facilitar leitura
-   - Inclua listas numeradas ou com bullets quando apropriado
-   - Explique termos técnicos de forma simples
+4. **Seção "Tipos de [X]" ou "Quando Usar" (H2 - 400 palavras):**
+   - Liste 3-5 tipos/situações
+   - Explique cada um com exemplo
+   - Use H3 para cada tipo
+   - Tabela comparativa se aplicável
 
-5. **Palavras-chave:**
-   - Principal: ${topic.keywords[0]}
-   - Secundárias: ${topic.keywords.slice(1).join(', ')}
-   - Densidade da palavra-chave principal: máximo 1.5%
-   - Use sinônimos e variações naturalmente
-   - NÃO force palavras-chave de forma artificial
+5. **Seção "Como Calcular [X] Passo a Passo" (H2 - 600 palavras):**
+   - Fórmula matemática explicada
+   - Passo 1, 2, 3... (use H3)
+   - Exemplo prático COMPLETO com números reais
+   - Cálculo detalhado linha por linha
+   - Resultado final destacado
 
-6. **Elementos Visuais:**
-   - Sugira 3-4 locais estratégicos para imagens
-   - Para cada imagem, forneça uma descrição detalhada do alt text
-   - Formato: [IMAGEM: descrição detalhada para alt text]
-   - As imagens devem complementar o conteúdo, não apenas decorar
+6. **Seção "Exemplo Prático Detalhado" (H2 - 400 palavras):**
+   - Situação real brasileira
+   - Dados do exemplo (salário, tempo, etc)
+   - Cálculo passo a passo
+   - Tabela com resultados
+   - Interpretação do resultado
 
-7. **Links Internos:**
-   - Sugira 2-3 links para a calculadora relacionada ou outros posts
-   - Use texto âncora natural e descritivo
-   - Formato: [LINK: texto âncora | /calculadora/${topic.category.toLowerCase()}/${topic.calculator.toLowerCase().replace(/ /g, '-')}]
+7. **Seção "Tabelas e Valores 2025" (H2 - 300 palavras):**
+   - Tabela INSS 2025 (se aplicável)
+   - Tabela IRRF 2025 (se aplicável)
+   - Outros valores oficiais atualizados
+   - Fonte das informações
 
-8. **Conclusão:**
-   - Resuma os pontos principais em 2-3 parágrafos
-   - Reforce o valor que o leitor ganhou
-   - Call-to-action claro e específico para usar a calculadora
-   - Exemplo: "Pronto para calcular [X]? Use nossa calculadora gratuita e descubra em segundos!"
+8. **Seção "Perguntas Frequentes" (H2 - 400 palavras):**
+   - 5-7 perguntas reais
+   - Respostas de 50-100 palavras cada
+   - Use H3 para cada pergunta
+   - Inclua variações da palavra-chave
 
-9. **Resumo em Bullet Points:**
-   - Seção final com título "📌 Principais Pontos"
-   - 5-7 bullet points com os takeaways mais importantes
-   - Cada ponto deve ser uma frase completa e acionável
+9. **Seção "Use Nossa Calculadora" (H2 - 150 palavras):**
+   - CTA forte para a calculadora
+   - Liste 3-4 benefícios da calculadora
+   - Link direto: /calculadora/${topic.category.toLowerCase()}/${topic.calculator.toLowerCase().replace(/ /g, '-')}
+   - Botão visual: [**→ Calcular Agora Grátis**]
 
-**TOM E ESTILO:**
+10. **Conclusão (200 palavras):**
+    - Resumo dos pontos principais
+    - Reforço do valor
+    - CTA final para calculadora
+    - Convite para comentários
 
-- **Tom:** Profissional mas acessível, amigável e confiável
-- **Ponto de vista:** Segunda pessoa (você, seu, sua)
-- **Linguagem:** Simples e clara, como uma conversa com um amigo que entende do assunto
-- **Evite:** Jargões sem explicação, frases muito longas, linguagem robótica
-- **Use:** Exemplos do cotidiano brasileiro, valores em reais (R$), referências à CLT quando relevante
+11. **Resumo Final:**
+    - Título: "📌 Principais Pontos"
+    - 7-10 bullet points
+    - Cada ponto = 1 frase completa
 
-**HUMANIZAÇÃO:**
+**PALAVRAS-CHAVE:**
+- Principal: ${topic.keywords[0]} (usar 8-12 vezes naturalmente)
+- Secundárias: ${topic.keywords.slice(1).join(', ')} (usar 3-5 vezes cada)
+- LSI Keywords: inclua sinônimos e variações
 
-- Escreva de forma natural e conversacional
-- Use perguntas retóricas para engajar ("Você já se perguntou...?")
-- Inclua transições suaves entre seções
-- Varie o comprimento das frases para criar ritmo
-- Mostre empatia com os desafios do leitor
-- Seja autêntico - admita quando algo é complexo
-- Use expressões brasileiras naturais
+**ELEMENTOS OBRIGATÓRIOS:**
+- ✅ Mínimo 2.500 palavras
+- ✅ 3-5 exemplos práticos com números
+- ✅ 2-3 tabelas formatadas em markdown
+- ✅ 5-7 FAQs
+- ✅ 3 CTAs para a calculadora
+- ✅ Valores em R$ (reais)
+- ✅ Referências à legislação brasileira
+- ✅ Data atualizada (2025)
 
-**PROIBIÇÕES:**
-- NÃO use: "Descubra", "Revolucionário", "Incrível", "Surpreendente"
-- NÃO use clickbait ou promessas exageradas
-- NÃO repita palavras-chave excessivamente
+**TOM:**
+- Profissional mas acessível
+- Segunda pessoa (você)
+- Conversacional, não robótico
+- Empático com dúvidas do leitor
+
+**PROIBIDO:**
+- ❌ Menos de 2.500 palavras
+- ❌ Palavras clickbait
+- ❌ Informações desatualizadas
+- ❌ Exemplos sem números concretos
+- ❌ Linguagem muito técnica sem explicação
 
 **FORMATO DE SAÍDA:**
-Retorne APENAS o artigo em markdown puro, começando com o título H1.
+Retorne APENAS o artigo em markdown, começando com # Título
 `.trim()
 
         console.log('🤖 Generating blog post with AI...')
         console.log(`📝 Topic: ${topic.category} - ${topic.calculator}`)
         console.log(`🎯 Angle: ${angle}`)
 
-        // Call OpenAI API
+        // Call OpenAI API with increased token limit
         const completion = await openai.chat.completions.create({
             model: 'gpt-4o-mini',
             messages: [
                 {
                     role: 'system',
-                    content: 'Você é um escritor especializado em conteúdo SEO para blogs brasileiros sobre finanças e direitos trabalhistas. Escreva artigos naturais, informativos e otimizados para SEO.'
+                    content: 'Você é um especialista em SEO e redação de conteúdo para blogs brasileiros sobre finanças e direitos trabalhistas. Você escreve artigos LONGOS (2.500-3.000 palavras), DETALHADOS e OTIMIZADOS que ranqueiam no Google. Seus artigos são informativos, práticos e incluem muitos exemplos com números reais. Você SEMPRE segue a estrutura solicitada e inclui TODAS as seções obrigatórias.'
                 },
                 {
                     role: 'user',
                     content: prompt
                 }
             ],
-            temperature: 0.8,
-            max_tokens: 4000,
+            temperature: 0.7,
+            max_tokens: 8000, // Aumentado para artigos mais longos
         })
 
         const aiContent = completion.choices[0]?.message?.content
