@@ -1,22 +1,26 @@
 import { PrismaClient } from '@prisma/client'
+import { withAccelerate } from '@prisma/extension-accelerate'
 import * as dotenv from 'dotenv'
 
 dotenv.config({ path: '.env', override: true })
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient().$extends(withAccelerate()) as unknown as PrismaClient
 
-async function unpublishPost() {
-    const slug = 'financiamento-imobiliario-como-calcular-parcelas-e-escolher-a-melhor-opcao'
+async function main() {
+    const slug = 'adicional-noturno-entenda-seus-direitos-e-horas-extras'
+
+    console.log('🔧 Unpublishing problematic post...')
 
     const updated = await prisma.post.update({
         where: { slug },
-        data: { published: false }
+        data: { status: 'DRAFT' }
     })
 
-    console.log(`Unpublished post: ${updated.title}`)
-    console.log(`Slug: ${updated.slug}`)
+    console.log('✅ Post unpublished:', updated.title)
+    console.log('📊 New status:', updated.status)
+    console.log('\n💡 The build should now succeed. You can fix the MDX syntax later and republish.')
 }
 
-unpublishPost()
-    .catch(e => console.error(e))
-    .finally(async () => await prisma.$disconnect())
+main()
+    .catch(console.error)
+    .finally(() => prisma.$disconnect())
