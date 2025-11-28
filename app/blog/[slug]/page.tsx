@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Breadcrumbs } from "@/components/seo/breadcrumbs"
 import { ShareButtons } from "@/components/ui/share-buttons"
 import { RelatedPosts } from "@/components/blog/related-posts"
+import { mdxComponents } from "@/components/blog/mdx-components"
 
 interface BlogPostPageProps {
     params: Promise<{
@@ -198,7 +199,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </div>
 
                 <div className="prose prose-sm sm:prose-base prose-stone dark:prose-invert max-w-none">
-                    <MDXRemote source={post.content} />
+                    <MDXRemote source={post.content} components={mdxComponents} />
                 </div>
 
                 <div className="mt-8 md:mt-12">
