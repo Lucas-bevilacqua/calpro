@@ -130,12 +130,33 @@ Este artigo é para o calcprobr.com, um site brasileiro de calculadoras financei
 **ELEMENTOS OBRIGATÓRIOS:**
 - ✅ Mínimo 2.500 palavras
 - ✅ 3-5 exemplos práticos com números
-- ✅ 2-3 tabelas formatadas em markdown
+- ✅ 2-3 tabelas formatadas em markdown (IMPORTANTE: usar formato | coluna | coluna |)
 - ✅ 5-7 FAQs
 - ✅ 3 CTAs para a calculadora
 - ✅ Valores em R$ (reais)
 - ✅ Referências à legislação brasileira
 - ✅ Data atualizada (2025)
+
+**FORMATO DE TABELAS (OBRIGATÓRIO):**
+Use SEMPRE este formato para tabelas:
+
+| Coluna 1 | Coluna 2 | Coluna 3 |
+|----------|----------|----------|
+| Valor 1  | Valor 2  | Valor 3  |
+| Valor 4  | Valor 5  | Valor 6  |
+
+NUNCA use tabelas em formato ASCII ou texto. SEMPRE use pipes (|) e hífens (-).
+
+Exemplo correto:
+| Faixa Salarial | Alíquota |
+|----------------|----------|
+| Até R$ 1.412   | 7,5%     |
+| R$ 1.412 a R$ 2.666 | 9% |
+
+Exemplo ERRADO (não use):
+Faixa Salarial | Alíquota
+-------------- | --------
+Até R$ 1.412   | 7,5%
 
 **TOM:**
 - Profissional mas acessível
@@ -164,7 +185,16 @@ Retorne APENAS o artigo em markdown, começando com # Título
             messages: [
                 {
                     role: 'system',
-                    content: 'Você é um especialista em SEO e redação de conteúdo para blogs brasileiros sobre finanças e direitos trabalhistas. Você escreve artigos LONGOS (2.500-3.000 palavras), DETALHADOS e OTIMIZADOS que ranqueiam no Google. Seus artigos são informativos, práticos e incluem muitos exemplos com números reais. Você SEMPRE segue a estrutura solicitada e inclui TODAS as seções obrigatórias.'
+                    content: `Você é um especialista em SEO e redação de conteúdo para blogs brasileiros sobre finanças e direitos trabalhistas. Você escreve artigos LONGOS (2.500-3.000 palavras), DETALHADOS e OTIMIZADOS que ranqueiam no Google. Seus artigos são informativos, práticos e incluem muitos exemplos com números reais. Você SEMPRE segue a estrutura solicitada e inclui TODAS as seções obrigatórias.
+
+IMPORTANTE: Você SEMPRE formata tabelas em Markdown usando pipes (|) e hífens (-). NUNCA use formato ASCII ou texto.
+
+Exemplo de tabela correta:
+| Faixa Salarial | Alíquota | Dedução |
+|----------------|----------|---------|
+| Até R$ 2.259   | Isento   | -       |
+| R$ 2.259 a R$ 2.826 | 7,5% | R$ 169,44 |
+| R$ 2.826 a R$ 3.751 | 15%  | R$ 381,44 |`
                 },
                 {
                     role: 'user',
