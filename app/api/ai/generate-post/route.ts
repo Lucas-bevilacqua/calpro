@@ -231,10 +231,19 @@ Exemplo de tabela correta:
             .replace(/[^a-z0-9]+/g, '-')
             .replace(/(^-|-$)/g, '')
 
-        // Generate featured image (optional - can be slow and expensive)
+        // Generate featured image
         let imageUrl = '/images/default-blog.jpg'
 
-        // Only generate with DALL-E if explicitly enabled
+        // Try to use Unsplash image based on topic
+        try {
+            const { generateBlogImage } = await import('@/lib/blog-images')
+            imageUrl = generateBlogImage(slug)
+            console.log('✅ Using Unsplash image for topic')
+        } catch (error: any) {
+            console.warn('⚠️ Failed to generate Unsplash image, using default:', error.message)
+        }
+
+        // Only generate with DALL-E if explicitly enabled (overrides Unsplash)
         const enableDallE = process.env.ENABLE_DALLE_IMAGES === 'true'
 
         if (enableDallE) {
@@ -243,12 +252,10 @@ Exemplo de tabela correta:
                 const { generateFeaturedImage } = await import('@/lib/generate-image')
                 const image = await generateFeaturedImage(angle, topic.keywords)
                 imageUrl = image.localPath
-                console.log('✅ Image generated successfully')
+                console.log('✅ DALL-E image generated successfully')
             } catch (imageError: any) {
-                console.warn('⚠️ DALL-E generation failed, using default:', imageError.message)
+                console.warn('⚠️ DALL-E generation failed, keeping Unsplash:', imageError.message)
             }
-        } else {
-            console.log('ℹ️ DALL-E disabled, using default image')
         }
 
         return NextResponse.json({
