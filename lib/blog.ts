@@ -91,20 +91,12 @@ async function getPostsFromDatabase(): Promise<BlogPost[]> {
 
 // Validate MDX content (basic check)
 function isValidMDX(content: string): boolean {
-    if (!content || content.trim().length === 0) return false
-    
-    // Check for common MDX syntax errors
-    const problematicPatterns = [
-        /\$[^$]*\$/g, // Single $ (should be escaped or use $$)
-        /<[^>]*[^>\/]$/m, // Unclosed tags
-    ]
-    
-    for (const pattern of problematicPatterns) {
-        if (pattern.test(content)) {
-            return false
-        }
+    // Only check if content exists and is not empty
+    if (!content || content.trim().length === 0) {
+        return false
     }
     
+    // Allow all content - let MDXRemote handle errors at render time
     return true
 }
 

@@ -2,14 +2,11 @@ import { notFound } from "next/navigation"
 import { getPostBySlug, getAllPosts } from "@/lib/blog"
 import { format } from "date-fns"
 import { ptBR } from "date-fns/locale"
-import { MDXRemote } from "next-mdx-remote/rsc"
-import Link from "next/link"
-import { ChevronLeft, CalendarIcon, User } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { CalendarIcon, User } from "lucide-react"
 import { Breadcrumbs } from "@/components/seo/breadcrumbs"
 import { ShareButtons } from "@/components/ui/share-buttons"
 import { RelatedPosts } from "@/components/blog/related-posts"
-import { mdxComponents } from "@/components/blog/mdx-components"
+import { MDXContent } from "@/components/blog/mdx-content"
 
 interface BlogPostPageProps {
     params: Promise<{
@@ -209,21 +206,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </div>
 
                 <div className="prose prose-sm sm:prose-base prose-stone dark:prose-invert max-w-none">
-                    {(() => {
-                        try {
-                            return <MDXRemote source={post.content} components={mdxComponents} />
-                        } catch (error) {
-                            console.error(`Error rendering MDX for ${post.slug}:`, error)
-                            return (
-                                <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
-                                    <p className="text-destructive font-semibold">Erro ao renderizar conteúdo</p>
-                                    <p className="text-sm text-muted-foreground mt-2">
-                                        Este artigo contém um erro de formatação. Por favor, entre em contato com o suporte.
-                                    </p>
-                                </div>
-                            )
-                        }
-                    })()}
+                    <MDXContent source={post.content} slug={post.slug} />
                 </div>
 
                 <div className="mt-8 md:mt-12">
