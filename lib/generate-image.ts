@@ -19,17 +19,37 @@ export async function generateFeaturedImage(
     keywords: string[]
 ): Promise<GeneratedImage> {
     try {
+        // Create contextual prompt based on keywords
+        const mainKeyword = keywords[0] || topic
+        const isFinancial = mainKeyword.toLowerCase().includes('salário') || 
+                           mainKeyword.toLowerCase().includes('dinheiro') ||
+                           mainKeyword.toLowerCase().includes('financ')
+        const isLabor = mainKeyword.toLowerCase().includes('trabalh') ||
+                       mainKeyword.toLowerCase().includes('rescisão') ||
+                       mainKeyword.toLowerCase().includes('férias')
+        
+        let styleContext = 'professional business and finance'
+        if (isFinancial) {
+            styleContext = 'financial planning, money management, calculator and charts'
+        } else if (isLabor) {
+            styleContext = 'workplace, employment rights, professional office environment'
+        }
+
         // Create prompt for professional blog image
         const prompt = `
-Professional, modern blog header image for an article about "${topic}".
-Style: Clean, minimalist, professional business illustration.
-Colors: Blue and white corporate colors.
-Include: Abstract representations of ${keywords.slice(0, 2).join(' and ')}.
-No text, no people faces, just clean professional graphics.
-High quality, 16:9 aspect ratio.
+A professional, modern blog header image about "${topic}".
+Style: Clean, minimalist, corporate illustration with a Brazilian business context.
+Theme: ${styleContext}.
+Colors: Professional blue (#2563eb), white, and subtle gradients.
+Elements: Abstract geometric shapes, subtle icons representing ${keywords.slice(0, 2).join(' and ')}.
+Mood: Professional, trustworthy, informative, modern.
+Quality: High-end business publication style.
+Important: NO text, NO faces, NO specific people, just clean professional graphics and abstract representations.
+Aspect ratio: 16:9 horizontal banner.
 `.trim()
 
         console.log('🎨 Generating image with DALL-E...')
+        console.log(`📝 Topic: ${topic}`)
 
         const response = await openai.images.generate({
             model: 'dall-e-3',

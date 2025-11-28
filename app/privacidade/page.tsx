@@ -60,7 +60,7 @@ export default function PrivacyPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            <div className="container px-4 sm:px-6 lg:px-8 py-8 md:py-10 max-w-4xl">
+            <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 md:py-10">
                 <Card>
                     <CardHeader>
                         <CardTitle className="text-3xl font-bold">Política de Privacidade</CardTitle>

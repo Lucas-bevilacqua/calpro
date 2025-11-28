@@ -19,7 +19,27 @@ O sistema de geração de artigos foi **completamente otimizado** para criar con
 
 ## 🚀 Como Usar
 
-### Opção 1: Interface Admin (Recomendado)
+### Opção 1: Geração em Lote (NOVO! ⚡)
+
+1. **Acesse o painel admin:**
+   ```
+   http://localhost:3000/admin/posts
+   ```
+
+2. **Clique em "Gerar Múltiplos Artigos"**
+
+3. **Escolha a quantidade:**
+   - Use os botões rápidos: 3, 5 ou 10 artigos
+   - Ou digite um número personalizado (1-20)
+
+4. **Aguarde a geração:**
+   - Tempo: ~2 minutos por artigo
+   - Progresso em tempo real
+   - Imagens geradas automaticamente via DALL-E
+
+5. **Pronto!** Todos os artigos são criados com imagens
+
+### Opção 2: Interface Admin (Individual)
 
 1. **Acesse o painel admin:**
    ```
@@ -32,12 +52,14 @@ O sistema de geração de artigos foi **completamente otimizado** para criar con
 
 4. **Aguarde 30-60 segundos** (artigos longos demoram mais)
 
-5. **Revise o conteúdo gerado:**
+5. **Imagem gerada automaticamente** via DALL-E (se configurado)
+
+6. **Revise o conteúdo gerado:**
    - Verifique números e cálculos
    - Ajuste exemplos se necessário
-   - Adicione imagens (opcional)
+   - Imagem já incluída
 
-6. **Publique!**
+7. **Publique!**
 
 ---
 
@@ -117,9 +139,32 @@ Antes de publicar, verifique:
 
 ---
 
-## 🎨 Adicionando Imagens
+## 🎨 Sistema de Imagens (AUTOMÁTICO!)
 
-### Opção 1: Usar Imagens Gratuitas
+### ✨ Geração Automática com DALL-E
+
+**Agora as imagens são geradas automaticamente!**
+
+1. **Configuração:**
+   - Se `OPENAI_API_KEY` estiver configurada, DALL-E é usado automaticamente
+   - Para desabilitar, adicione no `.env.local`: `ENABLE_DALLE_IMAGES="false"`
+
+2. **Características:**
+   - Imagens profissionais e relevantes ao tópico
+   - Estilo corporativo brasileiro
+   - Cores: azul profissional (#2563eb)
+   - Tamanho: 1792x1024 (16:9)
+   - Salvas em: `/public/blog-images/`
+
+3. **Fallback Automático:**
+   - Se DALL-E falhar → usa Unsplash
+   - Se Unsplash falhar → usa imagem padrão
+
+**Custo:** ~$0.04 por imagem
+
+### Alternativa: Imagens Gratuitas (Manual)
+
+Se preferir adicionar manualmente:
 
 **Unsplash:**
 ```
@@ -133,17 +178,6 @@ https://unsplash.com/s/photos/work
 https://www.pexels.com/search/calculator/
 https://www.pexels.com/search/money/
 ```
-
-### Opção 2: Gerar com IA (DALL-E)
-
-1. Ative no `.env.local`:
-   ```
-   ENABLE_DALLE_IMAGES=true
-   ```
-
-2. A imagem será gerada automaticamente
-
-**Custo:** ~$0.04 por imagem
 
 ---
 
@@ -176,14 +210,21 @@ https://www.pexels.com/search/money/
 
 ## 💰 Custos
 
-### Por Artigo:
+### Por Artigo (com imagem):
 - Geração de texto (GPT-4o-mini): ~$0.15
-- Imagem DALL-E (opcional): ~$0.04
+- Imagem DALL-E 3: ~$0.04
 - **Total:** ~$0.19 por artigo
 
-### 10 Artigos:
-- **Custo total:** ~$1.90
-- **ROI esperado:** 10.000%+ em 6 meses
+### Geração em Lote:
+- **3 artigos:** ~$0.57 (~2 min/artigo = 6 min total)
+- **5 artigos:** ~$0.95 (~2 min/artigo = 10 min total)
+- **10 artigos:** ~$1.90 (~2 min/artigo = 20 min total)
+- **20 artigos:** ~$3.80 (~2 min/artigo = 40 min total)
+
+### ROI Esperado:
+- **Investimento:** $1.90 (10 artigos)
+- **Retorno (6 meses):** R$ 20.000+
+- **ROI:** 10.000%+
 
 ---
 

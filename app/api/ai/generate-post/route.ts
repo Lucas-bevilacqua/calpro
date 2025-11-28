@@ -234,17 +234,8 @@ Exemplo de tabela correta:
         // Generate featured image
         let imageUrl = '/images/default-blog.jpg'
 
-        // Try to use Unsplash image based on topic
-        try {
-            const { generateBlogImage } = await import('@/lib/blog-images')
-            imageUrl = generateBlogImage(slug)
-            console.log('✅ Using Unsplash image for topic')
-        } catch (error: any) {
-            console.warn('⚠️ Failed to generate Unsplash image, using default:', error.message)
-        }
-
-        // Only generate with DALL-E if explicitly enabled (overrides Unsplash)
-        const enableDallE = process.env.ENABLE_DALLE_IMAGES === 'true'
+        // Try DALL-E first (if API key is available), then fallback to Unsplash
+        const enableDallE = process.env.OPENAI_API_KEY && process.env.ENABLE_DALLE_IMAGES !== 'false'
 
         if (enableDallE) {
             try {
@@ -254,7 +245,24 @@ Exemplo de tabela correta:
                 imageUrl = image.localPath
                 console.log('✅ DALL-E image generated successfully')
             } catch (imageError: any) {
-                console.warn('⚠️ DALL-E generation failed, keeping Unsplash:', imageError.message)
+                console.warn('⚠️ DALL-E generation failed, trying Unsplash:', imageError.message)
+                // Fallback to Unsplash
+                try {
+                    const { generateBlogImage } = await import('@/lib/blog-images')
+                    imageUrl = generateBlogImage(slug)
+                    console.log('✅ Using Unsplash image as fallback')
+                } catch (unsplashError: any) {
+                    console.warn('⚠️ Unsplash also failed, using default:', unsplashError.message)
+                }
+            }
+        } else {
+            // Use Unsplash if DALL-E is disabled
+            try {
+                const { generateBlogImage } = await import('@/lib/blog-images')
+                imageUrl = generateBlogImage(slug)
+                console.log('✅ Using Unsplash image (DALL-E disabled)')
+            } catch (error: any) {
+                console.warn('⚠️ Failed to generate Unsplash image, using default:', error.message)
             }
         }
 

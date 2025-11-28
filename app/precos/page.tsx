@@ -74,7 +74,7 @@ export default async function PrecosPage() {
   const session = await getServerSession(authOptions);
 
   return (
-    <div className="container px-4 sm:px-6 lg:px-8 py-8 md:py-10 space-y-8 md:space-y-10">
+    <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-10 space-y-8 md:space-y-10">
       <div className="text-center space-y-3 md:space-y-4 max-w-3xl mx-auto">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
           Escolha o plano ideal para você

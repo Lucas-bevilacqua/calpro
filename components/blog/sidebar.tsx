@@ -2,17 +2,16 @@ import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Calculator, TrendingUp, DollarSign, Briefcase } from "lucide-react"
-import { prisma } from "@/lib/prisma"
+import { getAllPosts } from "@/lib/blog"
 
 async function getRecentPosts() {
     try {
-        const posts = await prisma.post.findMany({
-            where: { published: true },
-            orderBy: { createdAt: 'desc' },
-            take: 5,
-            select: { title: true, slug: true, createdAt: true }
-        })
-        return posts
+        const posts = await getAllPosts()
+        return posts.slice(0, 5).map(post => ({
+            title: post.title,
+            slug: post.slug,
+            createdAt: post.date
+        }))
     } catch (error) {
         return []
     }
@@ -44,9 +43,9 @@ export async function Sidebar() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                     <p className="text-sm text-muted-foreground">
-                        Descubra exatamente quanto você vai receber de salário líquido este mês.
+                        Calcule sua rescisão trabalhista completa com todos os direitos.
                     </p>
-                    <Link href="/calculadora/trabalhista/salario-liquido" className="w-full block">
+                    <Link href="/calculadora/trabalhista/rescisao-trabalhista" className="w-full block">
                         <Button className="w-full">Calcular Agora</Button>
                     </Link>
                 </CardContent>

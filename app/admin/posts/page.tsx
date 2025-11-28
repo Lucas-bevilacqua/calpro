@@ -16,6 +16,7 @@ import { format } from "date-fns"
 import { ptBR } from "date-fns/locale"
 import Link from "next/link"
 import { GeneratePostDialog } from "@/components/admin/generate-post-dialog"
+import { BatchGenerateDialog } from "@/components/admin/batch-generate-dialog"
 
 interface Post {
     id: string
@@ -89,13 +90,14 @@ export default function PostsPage() {
                     </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                    <BatchGenerateDialog />
                     <Button
                         onClick={() => setShowGenerateDialog(true)}
                         variant="outline"
                         className="w-full sm:w-auto"
                     >
                         <Sparkles className="mr-2 h-4 w-4" />
-                        Gerar com IA
+                        Gerar 1 Artigo
                     </Button>
                     <Link href="/admin/posts/new" className="w-full sm:w-auto">
                         <Button className="w-full">

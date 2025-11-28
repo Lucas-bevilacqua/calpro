@@ -46,7 +46,7 @@ export default async function DashboardPage() {
     })
 
     return (
-        <div className="container px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-10">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 md:mb-8">
                 <div>
                     <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Dashboard</h1>

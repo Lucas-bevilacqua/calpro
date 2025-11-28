@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function SobrePage() {
     return (
-        <div className="container px-4 sm:px-6 lg:px-8 py-8 md:py-10 space-y-8 md:space-y-10">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-10 space-y-8 md:space-y-10">
             <div className="text-center space-y-4">
                 <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                     Sobre o calcprobr.com

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function LucroPresumidoPage() {
     return (
-        <div className="container px-4 sm:px-6 lg:px-8 py-8 md:py-10 space-y-8 md:space-y-10">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-10 space-y-8 md:space-y-10">
             <div className="text-center space-y-4 max-w-3xl mx-auto">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-primary">Calculadora de Lucro Presumido</h1>
                 <p className="text-base sm:text-lg md:text-xl text-muted-foreground">

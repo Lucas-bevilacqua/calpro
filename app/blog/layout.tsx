@@ -6,8 +6,8 @@ export default function BlogLayout({
     children: React.ReactNode
 }) {
     return (
-        <div className="container px-4 sm:px-6 lg:px-8 py-8 md:py-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
                 {/* Main Content */}
                 <main className="lg:col-span-8">
                     {children}
