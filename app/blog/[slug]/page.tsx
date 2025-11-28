@@ -18,11 +18,15 @@ interface BlogPostPageProps {
 }
 
 export async function generateStaticParams() {
-    const posts = await getAllPosts()
-
-    return posts.map((post) => ({
-        slug: post.slug,
-    }))
+    try {
+        const posts = await getAllPosts()
+        return posts.map((post) => ({
+            slug: post.slug,
+        }))
+    } catch (error) {
+        console.error('Error generating static params:', error)
+        return []
+    }
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps) {
@@ -91,6 +95,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const post = await getPostBySlug(slug)
 
     if (!post) {
+        notFound()
+    }
+
+    // Validate MDX content before rendering
+    if (!post.content || post.content.trim().length === 0) {
+        console.error(`Post ${slug} has empty content`)
         notFound()
     }
 
@@ -199,7 +209,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </div>
 
                 <div className="prose prose-sm sm:prose-base prose-stone dark:prose-invert max-w-none">
-                    <MDXRemote source={post.content} components={mdxComponents} />
+                    {(() => {
+                        try {
+                            return <MDXRemote source={post.content} components={mdxComponents} />
+                        } catch (error) {
+                            console.error(`Error rendering MDX for ${post.slug}:`, error)
+                            return (
+                                <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
+                                    <p className="text-destructive font-semibold">Erro ao renderizar conteúdo</p>
+                                    <p className="text-sm text-muted-foreground mt-2">
+                                        Este artigo contém um erro de formatação. Por favor, entre em contato com o suporte.
+                                    </p>
+                                </div>
+                            )
+                        }
+                    })()}
                 </div>
 
                 <div className="mt-8 md:mt-12">

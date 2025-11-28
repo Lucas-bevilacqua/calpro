@@ -89,6 +89,25 @@ async function getPostsFromDatabase(): Promise<BlogPost[]> {
     }
 }
 
+// Validate MDX content (basic check)
+function isValidMDX(content: string): boolean {
+    if (!content || content.trim().length === 0) return false
+    
+    // Check for common MDX syntax errors
+    const problematicPatterns = [
+        /\$[^$]*\$/g, // Single $ (should be escaped or use $$)
+        /<[^>]*[^>\/]$/m, // Unclosed tags
+    ]
+    
+    for (const pattern of problematicPatterns) {
+        if (pattern.test(content)) {
+            return false
+        }
+    }
+    
+    return true
+}
+
 // Get all posts from both sources (hybrid approach)
 export async function getAllPosts(): Promise<BlogPost[]> {
     try {
@@ -102,6 +121,14 @@ export async function getAllPosts(): Promise<BlogPost[]> {
         const uniqueDbPosts = dbPosts.filter(p => !filePostSlugs.has(p.slug))
         
         const allPosts = [...filePosts, ...uniqueDbPosts]
+            // Filter out posts with invalid MDX
+            .filter(post => {
+                const isValid = isValidMDX(post.content)
+                if (!isValid) {
+                    console.warn(`Skipping post with invalid MDX: ${post.slug}`)
+                }
+                return isValid
+            })
             .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
         return allPosts
