@@ -121,3 +121,40 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Blog Article Tables */
+.prose table {
+  @apply w-full border-collapse border border-border my-6;
+}
+
+.prose thead {
+  @apply bg-muted;
+}
+
+.prose th {
+  @apply border border-border px-4 py-3 text-left font-semibold;
+}
+
+.prose td {
+  @apply border border-border px-4 py-3;
+}
+
+.prose tbody tr:nth-child(even) {
+  @apply bg-muted/30;
+}
+
+.prose tbody tr:hover {
+  @apply bg-muted/50;
+}
+
+/* Responsive tables */
+@media (max-width: 640px) {
+  .prose table {
+    @apply text-sm;
+  }
+  
+  .prose th,
+  .prose td {
+    @apply px-2 py-2;
+  }
+}

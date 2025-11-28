@@ -1,72 +1,48 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
 
-enum Role {
-  USER
-  ADMIN
-}
-
-enum SubscriptionPlan {
-  FREE
-  PRO
-  ENTERPRISE
-}
-
-enum SubscriptionStatus {
-  ACTIVE
-  CANCELED
-  PAST_DUE
-  TRIALING
-  INCOMPLETE
-}
-
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  avatar        String?
-  bio           String?   @db.Text
-  password      String?
-  role          Role      @default(USER)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-
-  accounts      Account[]
-  sessions      Session[]
-  calculations  Calculation[]
+  id                String             @id @default(cuid())
+  name              String?
+  email             String?            @unique
+  emailVerified     DateTime?
+  image             String?
+  password          String?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  role              Role               @default(USER)
+  avatar            String?
+  bio               String?
+  accounts          Account[]
+  calculations      Calculation[]
+  posts             Post[]
   savedCalculations SavedCalculation[]
-  posts         Post[]
-  preferences   UserPreferences?
-  subscription  Subscription?
+  sessions          Session[]
+  subscription      Subscription?
+  preferences       UserPreferences?
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -88,55 +64,50 @@ model VerificationToken {
 }
 
 model Calculation {
-  id             String   @id @default(cuid())
-  userId         String?
-  calculatorType String
-  inputs         Json
-  results        Json
-  createdAt      DateTime @default(now())
-
-  user           User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id               String            @id @default(cuid())
+  userId           String?
+  calculatorType   String
+  inputs           Json
+  results          Json
+  createdAt        DateTime          @default(now())
+  user             User?             @relation(fields: [userId], references: [id], onDelete: Cascade)
   savedCalculation SavedCalculation?
 }
 
 model SavedCalculation {
-  id            String   @id @default(cuid())
+  id            String      @id @default(cuid())
   userId        String
-  calculationId String   @unique
+  calculationId String      @unique
   name          String
   notes         String?
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-
-  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
   calculation   Calculation @relation(fields: [calculationId], references: [id], onDelete: Cascade)
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model UserPreferences {
   id                  String   @id @default(cuid())
   userId              String   @unique
-  favoriteCalculators String[] // Array of calculator types
+  favoriteCalculators String[]
   theme               String   @default("system")
-  
   user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Post {
-  id        String   @id @default(cuid())
-  title     String
-  slug      String   @unique
-  content   String   @db.Text
-  excerpt   String?  @db.Text
-  image     String?
-  published Boolean  @default(false)
-  authorId  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
-  
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  content     String
+  excerpt     String?
+  image       String?
+  published   Boolean  @default(false)
+  authorId    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
   contentPlan Json?
   seoMetrics  Json?
+  author      User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
 }
 
 model Subscription {
@@ -152,6 +123,24 @@ model Subscription {
   cancelAtPeriodEnd    Boolean            @default(false)
   createdAt            DateTime           @default(now())
   updatedAt            DateTime           @updatedAt
-
   user                 User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum SubscriptionPlan {
+  FREE
+  PRO
+  ENTERPRISE
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELED
+  PAST_DUE
+  TRIALING
+  INCOMPLETE
 }
